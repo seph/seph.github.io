@@ -3,7 +3,6 @@
     <div align="center">
       <p style="font-size:22px">This animation below follows roughly the same methodology outlined in Proposition 47 of Euclid's Elements.</p>
       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="335" height="390" viewBox="0 0 335 390" onload="Animate(evt)">
-
         <script type="text/ecmascript">
           function Rotate(theta, ctr_x, ctr_y, short, long, factor) {
             var short_x = short * Math.sin(theta + factor), short_y = short * Math.cos(theta + factor), long_x = long * Math.sin(theta), long_y = long * Math.cos(theta);
@@ -42,8 +41,8 @@
           	}, delay);
         	}
         </script>
-        <rect width="100%" height="100%" fill="white" />
-        <polygon style="fill:none; stroke:lightgray; stroke-width:2" points="140,161 140,349" />
+        <rect width="100%" height="100%" fill="lightblue" />
+        <polygon style="fill:none; stroke:gray; stroke-width:1" points="140,161 140,349" />
         <polygon id="mytri" style="fill:gray; stroke:black; stroke-width:1" />
         <rect x="100" y="220" width="130" height="130" fill="none" stroke="black" stroke-width="1"/>
         <polygon style="fill:none; stroke:black; stroke-width:1" points="40,180 100,220 140,160 80,120" />
@@ -57,7 +56,7 @@
         Claim: on a given side(a or b), the area of the moving triangle<i> never changes</i>.<br>
         Clearly the area of the rotating triangle isn't changing.<br>
         Also, the <i>area of a triangle = 1/2 base x height</i> even for obtuse triangles.<br>
-        And, since <i>abc</i> is a right triangle, the height of the skewing triangle doesn't change. Neither does its area.<br>
+        And, since <i>abc</i> is a right triangle, the height of the skewing triangle doesn't change. Neither does its area. <sub>QED</sub><br>
       Therefore, if you watch the animation, it's plain to see that: <b>a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></b></p>
       <p style="font-size:14px"><b>**Although I came up with this independently, I was not the first to the internet with it.
         The first as far as I know was Jim Morey who won the grand prize at the Sun programming contest in 1995 with his applet.
