@@ -1,7 +1,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
-  <body style="background-color:beige">
+  <style media="screen" type="text/css">
+    p {
+      font-size: 18;
+    }
+    
+    body {
+      background-color:#f5f5dc;
+    }
+  </style>
+  <body>
     <div align="center">
-      <p style="font-size:22px">This animation follows the same methodology outlined in<i><b> Euclid's Elements: Proposition 47</b></i></p>
+      <p>This animation follows the same methodology outlined in<i><b> Euclid's Elements: Proposition 47</b></i></p>
       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="335" height="370" viewBox="0 0 335 370" onload="Animate(evt)">
         <script type="text/ecmascript">
           function Rotate(theta, ctr_x, ctr_y, short, long, factor) {
@@ -41,7 +50,7 @@
           	}, delay);
         	}
         </script>
-        <rect width="100%" height="100%" fill="lightblue" />
+        <rect width="100%" height="100%" fill=#778899 />
         <polygon style="fill:none; stroke:gray; stroke-width:1" points="140,161 140,349" />
         <polygon id="mytri" style="fill:gray; stroke:black; stroke-width:1" />
         <rect x="100" y="220" width="130" height="130" fill="none" stroke="black" stroke-width="1"/>
@@ -52,10 +61,10 @@
         <g transform="translate(185,187)" font-size="18" fill="black"><text id="TextElement">b</text></g>
         <g transform="translate(160,235)" font-size="18" fill="black"><text id="TextElement">c</text></g>
       </svg>
-      <p style="font-size:22px">
+      <p>
         <i><b>Claim:</b></i> for a given side <i><b>a</b></i> or<i><b> b</b></i>, the area of the moving triangle<i> does not change</i>.<br>
         <b><i>Observe:</i></b> we have two kinds of motion; rotation and skewing. Clearly the area of the rotating triangle isn't changing.
-        Also,<p style="font-size:22px"> <i><b>area(triangle) = 1/2 base x height</b></i></p><p style="font-size:22px"><i> even for obtuse triangles</i>.
+        Also,<p> <i><b>area(triangle) = 1/2 base x height</b></i></p><p><i> even for obtuse triangles</i>.
         So if triangle <i><b>abc</b></i> is right, the height of the skewing triangle doesn't change,<i> nor does its area. <b><sub>QED</sub></i></b><br>
         Therefore, it's plain to see from watching the animation:
         <i>if triangle <b>abc</b> is right then <b>a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></b></i></p>
