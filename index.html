@@ -1,8 +1,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <body style="background-color:beige">
     <div align="center">
-      <p style="font-size:22px">The animation below follows the same methodology outlined in<i><b> Euclid's Elements: Proposition 47</b></i></p>
-      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="335" height="390" viewBox="0 0 335 390" onload="Animate(evt)">
+      <p style="font-size:22px">This animated proof follows the same methodology outlined in<i><b> Euclid's Elements: Proposition 47</b></i></p>
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="335" height="360" viewBox="0 0 335 360" onload="Animate(evt)">
         <script type="text/ecmascript">
           function Rotate(theta, ctr_x, ctr_y, short, long, factor) {
             var short_x = short * Math.sin(theta + factor), short_y = short * Math.cos(theta + factor), long_x = long * Math.sin(theta), long_y = long * Math.cos(theta);
@@ -54,15 +54,15 @@
       </svg>
       <p style="font-size:22px">
         <i><b>Claim:</b></i> for a given side<i><b>(a or b)</b></i>, the area of the moving triangle<i> does not change</i>.<br>
-        <b><i>Observe:</i></b> we have two types of motion, rotating and skewing. Clearly the area of the rotating triangle isn't changing.
-        Also,<br> <i><b>area(triangle) = 1/2 base x height</b></i><br> even for obtuse triangles.
-        And since triangle <i><b>abc</b></i> is right, the height of the skewing triangle<i> does not change</i>. Neither does its area. <b><i><sub>QED baby</sub></i></b><br>
+        <b><i>Observe:</i></b> we have two types of motion, rotation and skewing. Clearly the area of the rotating triangle isn't changing.
+        Also,<p style="font-size:22px"> <i><b>area(triangle) = 1/2 base x height</b></i></p><p style="font-size:22px"> even for obtuse triangles.
+        Since triangle <i><b>abc</b></i> is right, the height of the skewing triangle<i> does not change</i>. Neither does its area. <b><i><sub>QED</sub></i></b><br>
         With that in mind it's plain to see from watching the animation:
-        if triangle <i><b>abc</b></i> is right then <i><b>a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></b></i></p>
-      <p><small>**Although I came up with this independently, I was not the first to the internet with it.
+        <i>if triangle <b>abc</b> is right then <b>a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></b></i></p>
+      <p style="font-size:small">**Although I came up with this independently, I was not the first to the internet with it.
         The first as far as I know was Jim Morey who won the grand prize at the Sun programming contest in 1995 with his applet.
         Since applets aren't well supported anymore I decided to get an SVG version going and get it back up on the web.
-        I built my original version back then in Turbo C++ using their built in graphics library. Easy peasy but no route to the web at that time.</small></p>
+        I built my original version back then in Turbo C++ using their built in graphics library. Easy peasy but no route to the web.</small></p>
     </div>
   </body>
 </html>
