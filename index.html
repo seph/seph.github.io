@@ -5,7 +5,15 @@
     p.large { font-size:22; }
     span.math { font-weight:bold; font-style:italic; }
     span.underline { text-decoration:underline }
-    body { background-color:#f5f5dc; }
+    body {
+      background-color:#f5f5dc;
+      text-align:center; /* this is required for old versions of IE */
+    }
+    #centered {
+       width:700px; /* this is the width of the center column (px, em or %) */
+       text-align:left; /*resets the text alignment back to left */
+       margin:0 auto; /* auto centers the div in standards complaint browsers */
+    }
   </style>
   <body>
     <div align="center">
@@ -59,22 +67,29 @@
         <g transform="translate(185,137)" font-size="18" fill="black"><text id="B">b</text></g>
         <g transform="translate(160,185)" font-size="18" fill="black"><text id="C">c</text></g>
       </svg>
-      <p>This animation follows the same general approach found in Proposition 47 of <i>Euclid's Elements</i>.</p>
+      <p><b>This animation follows the same general approach found in Proposition 47 of <i>Euclid's Elements</i></b>.</p>
+    </div>
+
+    <div id="centered">
       <p>
         <b>Claim:</b> for a given side <span class="math">a</span> or <span class="math">b</span>, the area of the triangle in motion <i>does not change</i>.<br>
-        <b>Observe:</b> we have two kinds of motion; rotation and skewing. Clearly the area of the rotating triangle isn't changing.
-        Also,
       </p>
       <p>
+        <b>Observe:</b> we have two kinds of motion; rotating and skewing. Clearly the area of the rotating triangle isn't changing.
+        Also,
+      </p>
+      <p align="center">
         <span class="math">area(triangle) = 1/2 base x height</span>
       </p>
       <p>
         <i>even for obtuse triangles</i>.
         Since triangle <span class="math">abc</span> is right, the height of the skewing triangle doesn't change, <i>nor does its area</i>.
         <span class="math"><sub>QED baby</sub></span><br>
-        <b>Therefore:</b> it's plain to see from watching the animation, if <span class="math">abc</span> is a right triangle then
       </p>
       <p>
+        <b>Therefore:</b> it's plain to see from watching the animation, if <span class="math">abc</span> is a right triangle then
+      </p>
+      <p align="center">
          <span class="math">a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></span>
       </p>
       <p class="small">**Although I came up with this independently, I was not the first to the internet with it.
