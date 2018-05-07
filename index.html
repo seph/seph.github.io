@@ -1,6 +1,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <style media="screen" type="text/css">
-    p { font-size:16; line-height:.9; }
+    p { font-size:16; }
     .small { font-size:small; }
     .large { font-size:22; }
     .math { font-weight:bold; font-style:italic; }
@@ -13,6 +13,9 @@
        width:700px; /* this is the width of the center column (px, em or %) */
        text-align:left; /*resets the text alignment back to left */
        margin:0 auto; /* auto centers the div in standards complaint browsers */
+    }
+    @media (min-width: 600px) {
+      p { font-size:16; line-height:.9}
     }
   </style>
   <body>
