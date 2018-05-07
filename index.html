@@ -1,9 +1,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <style media="screen" type="text/css">
-    p { font-size:16; }
+    p { font-size:16; line-height:.9; }
     .small { font-size:small; }
     .large { font-size:22; }
     .math { font-weight:bold; font-style:italic; }
+    .center { text-align:center }
     body {
       background-color:#f5f5dc;
       text-align:center; /* this is required for old versions of IE */
@@ -15,7 +16,7 @@
     }
   </style>
   <body>
-    <div align="center">
+    <div class="center">
       <h2>Theorem of Pythagoras</h2>
       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="335" height="320" viewBox="0 0 335 320" onload="Animate(evt)">
         <script type="text/ecmascript">
@@ -79,15 +80,15 @@
         <b>Claim:</b> starting from a given side <span class="math">a</span> or <span class="math">b</span>, the area of the triangle in motion <i>does not change</i>.<br><br>
         <b>Notice that:</b> we have two kinds of motion; rotating and skewing. Clearly the area of the rotating triangle isn't changing. Also,
       </p>
-      <p class="math" align="center">area(triangle) = 1/2 base x height</p>
+      <p class="math center">area(triangle) = 1/2 base x height</p>
       <p>
         <i>even for obtuse triangles</i>. Since triangle <span class="math">abc</span> is right, the height of the skewing triangle doesn't change, <i>nor does its area</i>.
         <b><sub>QED baby</sub></b><br><br>
         <b>Therefore:</b> it's plain to see from watching the animation, if <span class="math">abc</span> is a right triangle then
       </p>
-      <p align="center" class="math">a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></span></p>
-      <p class="small">**To my knowledge this first appeared on the internet as an applet done by Jim Morey and won the grand prize at the
-        Sun programming contest in 1995. Since applets aren't supported anymore I decided to put an SVG version together and get it back up on the web.
+      <p class="center math">a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></span></p>
+      <p class="small">**It's my understanding that this first appeared on the internet as an applet done by Jim Morey and won the grand prize in the
+        Sun/Java programming contest in 1995. Since applets aren't supported anymore I decided to put an SVG version together and get it back up on the web.
       </p>
     </div>
   </body>
