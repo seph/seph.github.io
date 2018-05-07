@@ -19,8 +19,12 @@
       <h2>Theorem of Pythagoras</h2>
       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="335" height="320" viewBox="0 0 335 320" onload="Animate(evt)">
         <script type="text/ecmascript">
-          function Rotate(theta, ctr_x, ctr_y, short, long, factor) {
-            var short_x = short * Math.sin(theta + factor), short_y = short * Math.cos(theta + factor), long_x = long * Math.sin(theta), long_y = long * Math.cos(theta);
+          function Rotate(theta, ctr_x, ctr_y, shortln, longln, factor) {
+            var short_x = shortln * Math.sin(theta + factor),
+                short_y = shortln * Math.cos(theta + factor),
+                long_x = longln * Math.sin(theta),
+                long_y = longln * Math.cos(theta);
+
             return (short_x + ctr_x) + "," + (short_y + ctr_y) + " " + ctr_x + "," + ctr_y + " " + (long_x + ctr_x) + "," + (long_y + ctr_y);
           }
 
@@ -66,36 +70,22 @@
         <g transform="translate(185,137)" font-size="18" fill="black"><text id="B">b</text></g>
         <g transform="translate(160,185)" font-size="18" fill="black"><text id="C">c</text></g>
       </svg>
-      <p>Animation that follows the same general approach found in <b>Proposition 47 of <i>Euclid's Elements</i></b>.</p>
+      <p>Animation following the same general approach found in <b><i>Euclid's Elements: Proposition 47</i></b>.</p>
     </div>
 
     <div id="centered">
       <hr>
       <p>
-        <b>Claim:</b> for a given side <span class="math">a</span> or <span class="math">b</span>, the area of the triangle in motion <i>does not change</i>.<br>
+        <b>Claim:</b> starting from a given side <span class="math">a</span> or <span class="math">b</span>, the area of the triangle in motion <i>does not change</i>.<br><br>
+        <b>Observe:</b> we have two kinds of motion; rotating and skewing. Clearly the area of the rotating triangle isn't changing. Also,
+        <center class="math">area(triangle) = 1/2 base x height</center><br>
+        <i>even for obtuse triangles</i>. Since triangle <span class="math">abc</span> is right, the height of the skewing triangle doesn't change, <i>nor does its area</i>.
+        <span class="math"><sub>QED baby</sub></span><br><br>
+        <b>Therefore:</b> it's plain to see from watching the animation, if <span class="math">abc</span> is a right triangle then<br><br>
+        <center class="math">a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></span></center>
       </p>
-      <p>
-        <b>Observe:</b> we have two kinds of motion; rotating and skewing. Clearly the area of the rotating triangle isn't changing.
-        Also,
-      </p>
-      <p align="center">
-        <span class="math">area(triangle) = 1/2 base x height</span>
-      </p>
-      <p>
-        <i>even for obtuse triangles</i>.
-        Since triangle <span class="math">abc</span> is right, the height of the skewing triangle doesn't change, <i>nor does its area</i>.
-        <span class="math"><sub>QED baby</sub></span><br>
-      </p>
-      <p>
-        <b>Therefore:</b> it's plain to see from watching the animation, if <span class="math">abc</span> is a right triangle then
-      </p>
-      <p align="center">
-         <span class="math">a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></span>
-      </p>
-      <p class="small">**Although I came up with this independently, I was not the first to the internet with it.
-        The first as far as I know was Jim Morey who won the grand prize at the Sun programming contest in 1995 with his applet.
-        Since applets aren't supported anymore I decided to get an SVG version going and get it back up on the web.
-        I built my original version back then in Turbo C++ using their built in graphics library. Easy peasy but no ready route to the web.
+      <p class="small">**To my knowledge the first appearance of this animation on the internet was done by Jim Morey who won the grand prize at the
+        Sun programming contest in 1995 with his applet. Since applets aren't supported anymore I decided to get an SVG version going and get it back up on the web.
       </p>
     </div>
   </body>
