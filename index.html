@@ -46,7 +46,7 @@
                   if ( first_y == 170 ) { delay = 2000; flag = 3; first_y = 110; last_x = 140; last_y = 109; } break;
                 case 3:
                   attributeStr = "290,80 230,170 " + ( last_x-- ) + "," + ( last_y += 1.48 );
-                  if ( last_y > 169 ) { delay = 2000; flag = 4; theta = 2.55} break;
+                  if ( last_y > 169 ) { delay = 2000; flag = 4; theta = 2.55; } break;
                 case 4:
                   attributeStr = Rotate(theta += 0.01, 230, 170, 129, 107, 2.15);
                   if ( theta > 4.12 ) { delay = 2000; flag = 5; } break;
@@ -61,8 +61,8 @@
         	}
         </script>
         <rect width="100%" height="100%" fill=#add8e6 />
-        <polygon style="fill:none; stroke:gray; stroke-width:1" points="140,111 140,299" />
         <polygon id="mytri" style="fill:lightgreen; stroke:black; stroke-width:1" />
+        <polygon style="fill:none; stroke:gray; stroke-width:1" points="140,111 140,299" />
         <rect x="100" y="170" width="130" height="130" fill="none" stroke="black" stroke-width="1"/>
         <polygon style="fill:none; stroke:black; stroke-width:1" points="40,130 100,170 140,110 80,70" />
         <polygon style="fill:none; stroke:black; stroke-width:1" points="290,80 230,170 140,110 200,20" />
@@ -77,15 +77,17 @@
       <hr>
       <p>
         <b>Claim:</b> starting from a given side <span class="math">a</span> or <span class="math">b</span>, the area of the triangle in motion <i>does not change</i>.<br><br>
-        <b>Observe:</b> we have two kinds of motion; rotating and skewing. Clearly the area of the rotating triangle isn't changing. Also,
-        <center class="math">area(triangle) = 1/2 base x height</center><br>
-        <i>even for obtuse triangles</i>. Since triangle <span class="math">abc</span> is right, the height of the skewing triangle doesn't change, <i>nor does its area</i>.
-        <span class="math"><sub>QED baby</sub></span><br><br>
-        <b>Therefore:</b> it's plain to see from watching the animation, if <span class="math">abc</span> is a right triangle then<br><br>
-        <center class="math">a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></span></center>
+        <b>Notice that:</b> we have two kinds of motion; rotating and skewing. Clearly the area of the rotating triangle isn't changing. Also,
       </p>
-      <p class="small">**To my knowledge the first appearance of this animation on the internet was done by Jim Morey who won the grand prize at the
-        Sun programming contest in 1995 with his applet. Since applets aren't supported anymore I decided to get an SVG version going and get it back up on the web.
+      <p class="math" align="center">area(triangle) = 1/2 base x height</p>
+      <p>
+        <i>even for obtuse triangles</i>. Since triangle <span class="math">abc</span> is right, the height of the skewing triangle doesn't change, <i>nor does its area</i>.
+        <b><sub>QED baby</sub></b><br><br>
+        <b>Therefore:</b> it's plain to see from watching the animation, if <span class="math">abc</span> is a right triangle then
+      </p>
+      <p align="center" class="math">a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></span></p>
+      <p class="small">**To my knowledge this first appeared on the internet as an applet done by Jim Morey and won the grand prize at the
+        Sun programming contest in 1995. Since applets aren't supported anymore I decided to put an SVG version together and get it back up on the web.
       </p>
     </div>
   </body>
