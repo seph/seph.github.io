@@ -3,6 +3,7 @@
     p { font-size:16; }
     .small { font-size:small; }
     .large { font-size:22; }
+    .xlarge { font-size:29; }
     .math { font-weight:bold; font-style:italic; }
     .center { text-align:center }
     body {
@@ -15,12 +16,12 @@
        margin:0 auto; /* auto centers the div in standards complaint browsers */
     }
     @media only screen and (min-width: 64em) {
-      p { font-size:16; line-height:.9}
+      p { font-size:15; line-height:0.9; }
     }
   </style>
   <body>
     <div class="center">
-      <h2>Theorem of Pythagoras</h2>
+      <h2 style="line-height:.9">Theorem of Pythagoras</h2>
       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="335" height="320" viewBox="0 0 335 320" onload="Animate(evt)">
         <script type="text/ecmascript">
           function Rotate(theta, ctr_x, ctr_y, shortln, longln, factor) {
@@ -90,8 +91,8 @@
         <b>Therefore:</b> it's plain to see from watching the animation, if <span class="math">abc</span> is a right triangle then
       </p>
       <p class="center math">a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></span></p>
-      <p class="small">**It's my understanding that this first appeared on the internet as an applet done by Jim Morey and won the grand prize in the
-        Sun/Java programming contest in 1995. Since applets aren't supported anymore I decided to put an SVG version together and get it back up on the web.
+      <p class="small">**I came up with this back in the 90's only to discover that Jim Morey not only beat me to the internet with his applet, he won the grand prize in the
+        Sun/Java programming contest in 1995. Since applets aren't supported anymore I decided to put an SVG version up on the web. Enjoy.
       </p>
     </div>
   </body>
