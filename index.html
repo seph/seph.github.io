@@ -34,39 +34,50 @@
           }
 
           function Animate(evt) {
-            var attributeStr, delay, last_x = 140, last_y = 110, first_y = 110, flag = 0, theta = 1.57, triangle = evt.target.ownerDocument.getElementById("mytri");
+            var contentStr, transformStr, attributeStr, delay, last_x = 140, last_y = 110, first_y = 110, flag = 0, theta = 1.57,
+              triangle = evt.target.ownerDocument.getElementById("mytri"),
+              msg = evt.target.ownerDocument.getElementById("mytext");
 
             setTimeout(function Transform() {
               delay = ( 140 == last_x ? 2000 : 40 );  //delay = 2000 if starting over
 
               switch ( flag ) {
                 case 0:
-                  attributeStr = "40,130 100,170 " + ( last_x++ ) + "," + ( last_x * 2 / 3 + 17 );
+                  triangle.setAttribute("fill", "lightgreen");
+                  msg.textContent = "Green triangle not changing size ->";
+                  msg.setAttribute("transform", "scale(.7) translate(10,427) rotate(-65)");
+                  triangle.setAttribute("points", "40,130 100,170 " + ( last_x++ ) + "," + ( last_x * 2 / 3 + 17 ));
                   if ( last_x == 230 ) { delay = 2000; flag = 1; } break;
                 case 1:
-                  attributeStr = Rotate(theta -= 0.01, 100, 170, 71, 130, 2.55);
+                  msg.textContent = "Still not changing ->";
+                  msg.setAttribute("transform", "scale(.7) translate(35,329) rotate(-37)");
+                  triangle.setAttribute("points", Rotate(theta -= 0.01, 100, 170, 71, 130, 2.55));
                   if ( 0 > theta ) { delay = 2000; flag = 2; } break;
                 case 2:
-                  attributeStr = "140," + ( ++first_y ) + " 100,170 100,300";
+                  msg.textContent = "Same as above! ->";
+                  msg.setAttribute("transform", "scale(.7) translate(20,330)");
+                  triangle.setAttribute("points", "140," + ( ++first_y ) + " 100,170 100,300");
                   if ( first_y == 170 ) { delay = 2000; flag = 3; first_y = 110; last_x = 140; last_y = 109; } break;
                 case 3:
-                  attributeStr = "290,80 230,170 " + ( last_x-- ) + "," + ( last_y += 1.48 );
+                  msg.textContent = "";
+                  triangle.setAttribute("fill", "pink");
+                  triangle.setAttribute("points", "290,80 230,170 " + ( last_x-- ) + "," + ( last_y += 1.48 ));
                   if ( last_y > 169 ) { delay = 2000; flag = 4; theta = 2.55; } break;
                 case 4:
-                  attributeStr = Rotate(theta += 0.01, 230, 170, 129, 107, 2.15);
+                  triangle.setAttribute("points", Rotate(theta += 0.01, 230, 170, 129, 107, 2.15));
                   if ( theta > 4.12 ) { delay = 2000; flag = 5; } break;
                 case 5:
-                  attributeStr = "140," + ( ++first_y ) + " 230,170 230,300";
+                  triangle.setAttribute("points", "140," + ( ++first_y ) + " 230,170 230,300");
                   if ( first_y == 170 ) { delay = 2000; flag = 0; first_y = 110; last_x = 140; last_y = 160; theta = 1.57; } break;
               }
 
-              triangle.setAttribute("points", attributeStr);
           		setTimeout(Transform, delay);
           	}, delay);
         	}
         </script>
-        <rect width="100%" height="100%" fill=#add8e6 />
-        <polygon id="mytri" style="fill:lightgreen; stroke:black; stroke-width:1" />
+        <rect width="100%" height="100%" fill="white" />
+        <polygon id="mytri" fill="lightpink" style="stroke:black; stroke-width:1" />
+        <text id="mytext" />
         <polygon style="fill:none; stroke:gray; stroke-width:1" points="140,111 140,299" />
         <rect x="100" y="170" width="130" height="130" fill="none" stroke="black" stroke-width="1"/>
         <polygon style="fill:none; stroke:black; stroke-width:1" points="40,130 100,170 140,110 80,70" />
@@ -75,25 +86,29 @@
         <g transform="translate(185,137)" font-size="18" fill="black"><text id="B">b</text></g>
         <g transform="translate(160,185)" font-size="18" fill="black"><text id="C">c</text></g>
       </svg>
-      <p>Animation follows the same general approach found in <b><i>Euclid's Elements: Proposition 47</i></b>.</p>
+      <p>Animation following the same general approach as <b><i>Euclid's Elements: Proposition 47</i></b></p>
     </div>
 
     <div id="centered">
       <hr>
       <p>
-        <b>Claim:</b> starting from a given side <span class="math">a</span> or <span class="math">b</span>, the area of the triangle in motion <i>does not change</i>.<br><br>
-        <b>Notice that:</b> we have two kinds of motion; rotating and skewing. Clearly the area of the rotating triangle isn't changing. Also,
+        <b>Claim:</b> the area of the triangle in motion starting at the top and moving down to the corresponding rectangle <i>does not change</i>.<br><br>
+        <b>Notice that:</b> we have two kinds of motion; rotating and skewing. Clearly the area of the rotating triangle isn't changing. So let's consider the skewing triangle and the fact that
       </p>
       <p class="math center">area(triangle) = 1/2 base x height</p>
       <p>
         <i>even for obtuse triangles</i>. Since triangle <span class="math">abc</span> is right, the height of the skewing triangle doesn't change, <i>nor does its area</i>.
         <b><sub>QED baby</sub></b><br><br>
-        <b>Therefore:</b> it's plain to see from watching the animation, if <span class="math">abc</span> is a right triangle then
+        <b>So, after watching the animation we know that:</b>
       </p>
-      <p class="center math">a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></span></p>
-      <p class="small">**I came up with this back in the 90's. However, I soon discovered that one Jim Morey had beaten me to the internet with an animated applet along the same
-        lines as mine. His applet also won the grand prize at the Sun/Java programming contest in 1995. Since applets aren't well supported anymore I decided to put my SVG version up
-        on the web. Enjoy.
+      <p class="center">
+        <span class="math">a<sup>2</sup>/2 = (left rectangle)/2</span>
+        and <span class="math">b<sup>2</sup>/2 = (right rectangle)/2</span>
+        together show that <span class="math">a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></span>
+      </p>
+      <p class="small">**I came up with this back in the 90's only to discover that I'd been beaten to the internet by one Jim Morey who built an animated applet along the same
+        lines as mine. His applet also won the grand prize at the Sun/Java programming contest in 1995. Applets aren't well supported anymore so I decided to put an SVG
+        version up to fill the void.
       </p>
     </div>
   </body>
