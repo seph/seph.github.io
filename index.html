@@ -44,7 +44,7 @@
               switch ( flag ) {
                 case 0:
                   triangle.setAttribute("fill", "lightgreen");
-                  msg.textContent = "Green triangle not changing size ->";
+                  msg.textContent = "Green triangle size unchanged ->";
                   msg.setAttribute("transform", "scale(.7) translate(10,427) rotate(-65)");
                   triangle.setAttribute("points", "40,130 100,170 " + ( last_x++ ) + "," + ( last_x * 2 / 3 + 17 ));
                   if ( last_x == 230 ) { delay = 2000; flag = 1; } break;
