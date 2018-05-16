@@ -43,8 +43,8 @@
 
               switch ( flag ) {
                 case 0:
-                  msg.textContent = "Green area size not changing ->";
-                  msg.setAttribute("transform", "scale(.7) translate(110,230) rotate(-65)");
+                  msg.textContent = "Size of green area not changing ->";
+                  msg.setAttribute("transform", "scale(.7) translate(110,230) rotate(-67)");
                   triangle.setAttribute("fill", "lightgreen");
                   triangle.setAttribute("points", "40,130 100,170 " + ( last_x++ ) + "," + ( last_x * 2 / 3 + 17 ));
                   if ( last_x == 230 ) { delay = 2000; flag = 1; } break;
