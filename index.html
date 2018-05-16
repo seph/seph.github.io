@@ -55,7 +55,7 @@
                   triangle.setAttribute("points", Rotate(theta -= 0.01, 100, 170, 71, 130, 2.55));
                   if ( 0 > theta ) { delay = 2000; flag = 2; } break;
                 case 2:
-                  msg.textContent = "Same area as ";
+                  msg.textContent = "Same size as";
                   msg.setAttribute("transform", "scale(.7) translate(108,330)");
                   msg2.textContent = "when it started! ->";
                   msg2.setAttribute("transform", "scale(.7) translate(138,350)");
@@ -107,9 +107,9 @@
         <b>So, after watching the animation we know that:</b>
       </p>
       <p class="center">
-        <span class="math">a<sup>2</sup>/2 = (left rectangle)/2</span>
-        and <span class="math">b<sup>2</sup>/2 = (right rectangle)/2</span>
-        together show that <span class="math">a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></span>
+        <span class="math">area(square)/2 = area(rectangle)/2</span>
+        which means <span class="math">area(square) = area(rectangle)</span>
+        therefore <span class="math">a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></span>
       </p>
       <p class="small">**I came up with this back in the 90's only to discover that I'd been beaten to the internet by one Jim Morey. He built an animated applet along the same
         lines as mine and won the grand prize at the Sun/Java programming contest in 1995. Applets aren't well supported anymore so I am putting this SVG
