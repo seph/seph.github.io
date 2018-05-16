@@ -35,8 +35,7 @@
 
           function Animate(evt) {
             var contentStr, transformStr, attributeStr, delay, last_x = 140, last_y = 110, first_y = 110, flag = 0, theta = 1.57,
-              triangle = evt.target.ownerDocument.getElementById("mytri"),
-              msg = evt.target.ownerDocument.getElementById("mytext");
+              triangle = evt.target.ownerDocument.getElementById("mytri");
 
             setTimeout(function Transform() {
               delay = ( 140 == last_x ? 2000 : 40 );  //delay = 2000 if starting over
@@ -44,22 +43,15 @@
               switch ( flag ) {
                 case 0:
                   triangle.setAttribute("fill", "lightgreen");
-                  msg.textContent = "Green triangle size unchanged ->";
-                  msg.setAttribute("transform", "scale(.7) translate(10,427) rotate(-65)");
                   triangle.setAttribute("points", "40,130 100,170 " + ( last_x++ ) + "," + ( last_x * 2 / 3 + 17 ));
                   if ( last_x == 230 ) { delay = 2000; flag = 1; } break;
                 case 1:
-                  msg.textContent = "Still not changing ->";
-                  msg.setAttribute("transform", "scale(.7) translate(35,329) rotate(-37)");
                   triangle.setAttribute("points", Rotate(theta -= 0.01, 100, 170, 71, 130, 2.55));
                   if ( 0 > theta ) { delay = 2000; flag = 2; } break;
                 case 2:
-                  msg.textContent = "Same as above! ->";
-                  msg.setAttribute("transform", "scale(.7) translate(20,330)");
                   triangle.setAttribute("points", "140," + ( ++first_y ) + " 100,170 100,300");
                   if ( first_y == 170 ) { delay = 2000; flag = 3; first_y = 110; last_x = 140; last_y = 109; } break;
                 case 3:
-                  msg.textContent = "";
                   triangle.setAttribute("fill", "pink");
                   triangle.setAttribute("points", "290,80 230,170 " + ( last_x-- ) + "," + ( last_y += 1.48 ));
                   if ( last_y > 169 ) { delay = 2000; flag = 4; theta = 2.55; } break;
