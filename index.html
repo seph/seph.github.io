@@ -36,7 +36,8 @@
           function Animate(evt) {
             var contentStr, transformStr, attributeStr, delay, last_x = 140, last_y = 110, first_y = 110, flag = 0, theta = 1.57,
               triangle = evt.target.ownerDocument.getElementById("mytri"),
-              msg = evt.target.ownerDocument.getElementById("mytext");
+              msg = evt.target.ownerDocument.getElementById("mytext"),
+              msg2 = evt.target.ownerDocument.getElementById("mytext2");
 
             setTimeout(function Transform() {
               delay = ( 140 == last_x ? 2000 : 40 );  //delay = 2000 if starting over
@@ -54,12 +55,15 @@
                   triangle.setAttribute("points", Rotate(theta -= 0.01, 100, 170, 71, 130, 2.55));
                   if ( 0 > theta ) { delay = 2000; flag = 2; } break;
                 case 2:
-                  msg.textContent = "Same as it started! ->";
-                  msg.setAttribute("transform", "scale(.7) translate(138,330) rotate(-33)");
+                  msg.textContent = "Same area as ";
+                  msg.setAttribute("transform", "scale(.7) translate(108,330)");
+                  msg2.textContent = "when it started! ->";
+                  msg2.setAttribute("transform", "scale(.7) translate(138,350)");
                   triangle.setAttribute("points", "140," + ( ++first_y ) + " 100,170 100,300");
                   if ( first_y == 170 ) { delay = 2000; flag = 3; first_y = 110; last_x = 140; last_y = 109; } break;
                 case 3:
                   msg.textContent = "";
+                  msg2.textContent = "";
                   triangle.setAttribute("fill", "pink");
                   triangle.setAttribute("points", "290,80 230,170 " + ( last_x-- ) + "," + ( last_y += 1.48 ));
                   if ( last_y > 169 ) { delay = 2000; flag = 4; theta = 2.55; } break;
@@ -78,6 +82,7 @@
         <rect width="100%" height="100%" fill="white" />
         <polygon id="mytri" fill="lightpink" style="stroke:black; stroke-width:1" />
         <text id="mytext" text-anchor="end" />
+        <text id="mytext2" text-anchor="end" />
         <polygon style="fill:none; stroke:gray; stroke-width:1" points="140,111 140,299" />
         <rect x="100" y="170" width="130" height="130" fill="none" stroke="black" stroke-width="1"/>
         <polygon style="fill:none; stroke:black; stroke-width:1" points="40,130 100,170 140,110 80,70" />
