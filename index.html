@@ -50,12 +50,12 @@
                   if ( last_x == 230 ) { delay = 2000; flag = 1; } break;
                 case 1:
                   msg.textContent = "Still not changing ->";
-                  msg.setAttribute("transform", "scale(.7) translate(135,239) rotate(-37)");
+                  msg.setAttribute("transform", "scale(.7) translate(140,249) rotate(-33)");
                   triangle.setAttribute("points", Rotate(theta -= 0.01, 100, 170, 71, 130, 2.55));
                   if ( 0 > theta ) { delay = 2000; flag = 2; } break;
                 case 2:
                   msg.textContent = "Same as above! ->";
-                  msg.setAttribute("transform", "scale(.7) translate(20,330)");
+                  msg.setAttribute("transform", "scale(.7) translate(140,330)");
                   triangle.setAttribute("points", "140," + ( ++first_y ) + " 100,170 100,300");
                   if ( first_y == 170 ) { delay = 2000; flag = 3; first_y = 110; last_x = 140; last_y = 109; } break;
                 case 3:
