@@ -22,7 +22,7 @@
   <body>
     <div class="center">
       <h2 style="line-height:.9">Theorem of Pythagoras</h2>
-      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="335" height="350" viewBox="0 0 335 350" onload="Animate(evt)">
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="335" height="320" viewBox="0 0 335 320" onload="Animate(evt)">
         <script type="text/ecmascript">
           function Rotate(theta, ctr_x, ctr_y, shortln, longln, factor) {
             var short_x = shortln * Math.sin(theta + factor),
@@ -43,14 +43,14 @@
 
               switch ( flag ) {
                 case 0:
-                  msg.textContent = "Green triangle area not changing ->";
+                  msg.textContent = "Size of green area not changing ->";
                   msg.setAttribute("transform", "scale(.7) translate(110,230) rotate(-65)");
                   triangle.setAttribute("fill", "lightgreen");
                   triangle.setAttribute("points", "40,130 100,170 " + ( last_x++ ) + "," + ( last_x * 2 / 3 + 17 ));
                   if ( last_x == 230 ) { delay = 2000; flag = 1; } break;
                 case 1:
                   msg.textContent = "Still not changing ->";
-                  msg.setAttribute("transform", "scale(.7) translate(35,329) rotate(-37)");
+                  msg.setAttribute("transform", "scale(.7) translate(135,239) rotate(-37)");
                   triangle.setAttribute("points", Rotate(theta -= 0.01, 100, 170, 71, 130, 2.55));
                   if ( 0 > theta ) { delay = 2000; flag = 2; } break;
                 case 2:
