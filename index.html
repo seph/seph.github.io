@@ -22,7 +22,7 @@
   <body>
     <div class="center">
       <h2 style="line-height:.9">Theorem of Pythagoras</h2>
-      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="335" height="320" viewBox="0 0 335 320" onload="Animate(evt)">
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="335" height="330" viewBox="0 0 335 330" onload="Animate(evt)">
         <script type="text/ecmascript">
           function Rotate(theta, ctr_x, ctr_y, shortln, longln, factor) {
             var short_x = shortln * Math.sin(theta + factor),
@@ -44,7 +44,7 @@
               switch ( flag ) {
                 case 0:
                   msg.textContent = "Size of green area not changing ->";
-                  msg.setAttribute("transform", "scale(.7) translate(110,230) rotate(-67)");
+                  msg.setAttribute("transform", "scale(.7) translate(110,230) rotate(-72)");
                   triangle.setAttribute("fill", "lightgreen");
                   triangle.setAttribute("points", "40,130 100,170 " + ( last_x++ ) + "," + ( last_x * 2 / 3 + 17 ));
                   if ( last_x == 230 ) { delay = 2000; flag = 1; } break;
