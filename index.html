@@ -25,10 +25,8 @@
       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="335" height="340" viewBox="0 0 335 340" onload="Animate(evt)">
         <script type="text/ecmascript">
           function Rotate(theta, ctr_x, ctr_y, shortln, longln, factor) {
-            var short_x = shortln * Math.sin(theta + factor),
-                short_y = shortln * Math.cos(theta + factor),
-                long_x = longln * Math.sin(theta),
-                long_y = longln * Math.cos(theta);
+            var short_x = shortln * Math.sin(theta + factor), short_y = shortln * Math.cos(theta + factor),
+                long_x = longln * Math.sin(theta), long_y = longln * Math.cos(theta);
 
             return (short_x + ctr_x) + "," + (short_y + ctr_y) + " " + ctr_x + "," + ctr_y + " " + (long_x + ctr_x) + "," + (long_y + ctr_y);
           }
@@ -62,8 +60,7 @@
                   triangle.setAttribute("points", "140," + ( ++first_y ) + " 100,170 100,300");
                   if ( first_y == 170 ) { delay = 2000; flag = 3; first_y = 110; last_x = 140; last_y = 109; } break;
                 case 3:
-                  msg.textContent = "";
-                  msg2.textContent = "";
+                  msg.textContent = ""; msg2.textContent = "";
                   triangle.setAttribute("points", "290,80 230,170 " + ( last_x-- ) + "," + ( last_y += 1.48 ));
                   if ( last_y > 169 ) { delay = 2000; flag = 4; theta = 2.55; } break;
                 case 4:
@@ -78,17 +75,17 @@
           	}, delay);
         	}
         </script>
-        <rect width="100%" height="100%" fill="white" />
+        <rect width="100%" height="100%" fill="white" stroke="black" />
         <polygon id="mytri" fill="lightpink" style="stroke:black; stroke-width:1" />
         <text id="mytext" text-anchor="end" />
         <text id="mytext2" text-anchor="end" />
-        <polygon style="fill:none; stroke:gray; stroke-width:1" points="140,111 140,299" />
-        <rect x="100" y="170" width="130" height="130" fill="none" stroke="black" stroke-width="1"/>
-        <polygon style="fill:none; stroke:black; stroke-width:1" points="40,130 100,170 140,110 80,70" />
-        <polygon style="fill:none; stroke:black; stroke-width:1" points="290,80 230,170 140,110 200,20" />
-        <g transform="translate(105,140)" font-size="18" fill="black"><text id="A">a</text></g>
-        <g transform="translate(185,137)" font-size="18" fill="black"><text id="B">b</text></g>
-        <g transform="translate(160,185)" font-size="18" fill="black"><text id="C">c</text></g>
+        <polygon style="fill:none; stroke:gray;" points="140,111 140,299" />
+        <rect x="100" y="170" width="130" height="130" fill="none" stroke="black" />
+        <polygon style="fill:none; stroke:black;" points="40,130 100,170 140,110 80,70" />
+        <polygon style="fill:none; stroke:black;" points="290,80 230,170 140,110 200,20" />
+        <text transform="translate(105,140)">a</text>
+        <text transform="translate(185,135)">b</text>
+        <text transform="translate(160,185)">c</text>
       </svg>
       <p>Animation follows the same general approach as <b><i>Euclid's Elements: Proposition 47</i></b></p>
     </div>
@@ -103,7 +100,7 @@
       <p>
         <i>even for obtuse triangles</i>. Since triangle <span class="math">abc</span> is right, the height of the skewing triangle doesn't change, <i>nor does its area</i>.
         <b><sub>QED baby</sub></b><br><br>
-        <b>From the animation:</b>
+        <b>So, from the animation:</b>
       </p>
       <p class="center">
         <span class="math">area(square)/2 = area(rectangle)/2</span>
