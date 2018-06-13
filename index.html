@@ -31,7 +31,7 @@
           }
 
           function Animate(evt) {
-            var contentStr, transformStr, attributeStr, delay, last_x = 140, last_y = 110, first_y = 110, flag = 0, theta = 1.57,
+            var contentStr, transformStr, attributeStr, delay, last_x = 140, last_y = 110, first_y = 110, flag = 2, theta = 1.57,
               triangle = evt.target.ownerDocument.getElementById("mytri"),
               msg1 = evt.target.ownerDocument.getElementById("text1"),
               msg2 = evt.target.ownerDocument.getElementById("text2");
@@ -66,7 +66,7 @@
                   msg1.textContent = "(Final skew)";
                   msg1.setAttribute("transform", "scale(.7) translate(108,310)");
                   msg2.textContent = "Same size as when";
-                  msg2.setAttribute("transform", "scale(.7) translate(130,330)");
+                  msg2.setAttribute("transform", "scale(.7) translate(135,330)");
                   msg3.textContent = "we started! ->";
                   msg3.setAttribute("transform", "scale(.7) translate(118,350)");
                   triangle.setAttribute("points", "140," + ( ++first_y ) + " 100,170 100,300");
