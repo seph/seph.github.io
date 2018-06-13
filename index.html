@@ -65,10 +65,10 @@
                 case 2:
                   msg1.textContent = "(Final skew)";
                   msg1.setAttribute("transform", "scale(.7) translate(108,310)");
-                  msg2.textContent = "Same size as";
-                  msg2.setAttribute("transform", "scale(.7) translate(108,330)");
-                  msg3.textContent = "when we started! ->";
-                  msg3.setAttribute("transform", "scale(.7) translate(138,350)");
+                  msg2.textContent = "Same size as when";
+                  msg2.setAttribute("transform", "scale(.7) translate(130,330)");
+                  msg3.textContent = "we started! ->";
+                  msg3.setAttribute("transform", "scale(.7) translate(118,350)");
                   triangle.setAttribute("points", "140," + ( ++first_y ) + " 100,170 100,300");
                   if ( first_y == 170 ) { delay = 2000; flag = 3; first_y = 110; last_x = 140; last_y = 109; } break;
                 case 3:
@@ -88,7 +88,7 @@
         	}
         </script>
         <rect width="100%" height="100%" fill="white" stroke="black" />
-        <polygon id="mytri" fill="lightpink" style="stroke:black; stroke-width:1" />
+        <polygon id="mytri" style="stroke:black; stroke-width:1" />
         <text id="text1" text-anchor="end" />
         <text id="text2" text-anchor="end" />
         <text id="text3" text-anchor="end" />
