@@ -2,10 +2,8 @@
   <style media="screen" type="text/css">
     p { font-size: 16; }
     .small { font-size: small; }
-    .large { font-size: 22; }
-    .xlarge { font-size: 29; }
-    .math { font-weight: bold; font-style: italic; }
     .center { text-align: center; }
+    .bold { font-weight: bold; }
     body {
       background-color: #f5f5dc;
       text-align: center; /* this is required for old versions of IE */
@@ -19,6 +17,7 @@
       p { font-size: 15; line-height: 0.9; }
     }
   </style>
+
   <body>
     <div class="center">
       <h2 style="line-height:.9">Theorem of Pythagoras</h2>
@@ -34,8 +33,9 @@
           function Animate(evt) {
             var contentStr, transformStr, attributeStr, delay, last_x = 140, last_y = 110, first_y = 110, flag = 0, theta = 1.57,
               triangle = evt.target.ownerDocument.getElementById("mytri"),
-              msg = evt.target.ownerDocument.getElementById("mytext"),
-              msg2 = evt.target.ownerDocument.getElementById("mytext2");
+              msg1 = evt.target.ownerDocument.getElementById("text1"),
+              msg2 = evt.target.ownerDocument.getElementById("text2");
+              msg3 = evt.target.ownerDocument.getElementById("text3");
 
             setTimeout(function Transform() {
               if ( 140 == last_x ) {
@@ -43,30 +43,36 @@
               } else if ( flag == 3 ) {
                 delay = 60;     // slow down first leg of RH animation
               } else {
-                delay = 40;     // just right
+                delay = 40;     // default speed
               }
 
               switch ( flag ) {
                 case 0:
-                  msg.textContent = "Size of green area isn't changing ->";
-                  msg.setAttribute("transform", "scale(.7) translate(110,230) rotate(-72)");
+                  msg1.textContent = "(First skew)";
+                  msg1.setAttribute("transform", "scale(.7) translate(70,290) rotate(-72)");
+                  msg2.textContent = "Size of green area isn't changing ->";
+                  msg2.setAttribute("transform", "scale(.7) translate(110,230) rotate(-72)");
                   triangle.setAttribute("fill", "lightgreen");
                   triangle.setAttribute("points", "40,130 100,170 " + ( last_x++ ) + "," + ( last_x * 2 / 3 + 17 ));
                   if ( last_x == 230 ) { delay = 2000; flag = 1; } break;
                 case 1:
-                  msg.textContent = "Still not changing ->";
-                  msg.setAttribute("transform", "scale(.7) translate(140,249) rotate(-33)");
+                  msg1.textContent = "(Rotation)";
+                  msg1.setAttribute("transform", "scale(.7) translate(100,254) rotate(-33)");
+                  msg2.textContent = "Still not changing ->";
+                  msg2.setAttribute("transform", "scale(.7) translate(140,249) rotate(-33)");
                   triangle.setAttribute("points", Rotate(theta -= 0.01, 100, 170, 71, 130, 2.55));
                   if ( 0 > theta ) { delay = 2000; flag = 2; } break;
                 case 2:
-                  msg.textContent = "Same size as";
-                  msg.setAttribute("transform", "scale(.7) translate(108,330)");
-                  msg2.textContent = "when it started! ->";
-                  msg2.setAttribute("transform", "scale(.7) translate(138,350)");
+                  msg1.textContent = "(Final skew)";
+                  msg1.setAttribute("transform", "scale(.7) translate(108,310)");
+                  msg2.textContent = "Same size as";
+                  msg2.setAttribute("transform", "scale(.7) translate(108,330)");
+                  msg3.textContent = "when we started! ->";
+                  msg3.setAttribute("transform", "scale(.7) translate(138,350)");
                   triangle.setAttribute("points", "140," + ( ++first_y ) + " 100,170 100,300");
                   if ( first_y == 170 ) { delay = 2000; flag = 3; first_y = 110; last_x = 140; last_y = 109; } break;
                 case 3:
-                  msg.textContent = ""; msg2.textContent = "";
+                  msg1.textContent = ""; msg2.textContent = ""; msg3.textContent = "";
                   triangle.setAttribute("points", "290,80 230,170 " + ( last_x-- ) + "," + ( last_y += 1.48 ));
                   if ( last_y > 169 ) { delay = 2000; flag = 4; theta = 2.55; } break;
                 case 4:
@@ -83,8 +89,9 @@
         </script>
         <rect width="100%" height="100%" fill="white" stroke="black" />
         <polygon id="mytri" fill="lightpink" style="stroke:black; stroke-width:1" />
-        <text id="mytext" text-anchor="end" />
-        <text id="mytext2" text-anchor="end" />
+        <text id="text1" text-anchor="end" />
+        <text id="text2" text-anchor="end" />
+        <text id="text3" text-anchor="end" />
         <polygon style="fill:none; stroke:gray;" points="140,111 140,299" />
         <rect x="100" y="170" width="130" height="130" fill="none" stroke="black" />
         <polygon style="fill:none; stroke:black;" points="40,130 100,170 140,110 80,70" />
@@ -102,20 +109,21 @@
         <b>Claim:</b> beginning in one of the squares above and continuing down to its corresponding rectangle below, the area of the green triangle in motion <i>does not change</i>.<br><br>
         <b>Notice that:</b> we have two kinds of motion; rotation and skewing. Clearly the area of the rotating triangle isn't changing so let's turn our attention to the skewing triangle and consider the fact that:
       </p>
-      <p class="math center">area(triangle) = 1/2 base x height</p>
+      <p class="center bold">area(triangle) = &frac12; base &times; height</p>
       <p>
-        <a href="https://www.youtube.com/watch?v=YOYQys52sPs">even for obtuse triangles</a>. And since triangle <span class="math">abc</span> is right, the height of the skewing triangle doesn't change, <i>nor does its area</i>.
-        <b><sub>QED baby</sub></b><br><br>
-        <b>So, from the animation:</b>
+        <a href="https://www.youtube.com/watch?v=YOYQys52sPs">even for obtuse triangles</a>. And since triangle <span class="bold">abc</span> is right, the height of the first skewing triangle doesn't change, <i>nor does its area</i>.
+        By the same reasoning, since the skew follows the line dropped perpendicular to side <b>c</b>, the area of the final skewing triangle doesn't change either. <b><sub>QED baby</sub></b>
       </p>
       <p class="center">
-        <span class="math">area(square)/2 = area(rectangle)/2</span>
-        implies that <span class="math">area(square) = area(rectangle)</span>
-        therefore <span class="math">a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></span>
+        So, from the animation:
+        <span class="bold">&frac12; area(square) = &frac12; area(rectangle)</span>
+        implying that <span class="bold">area(square) = area(rectangle)</span>
+        <br><br>
+        Therefore <span class="bold">a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></span>
       </p>
       <p class="small">** I came up with this back in the 90's only to discover that I'd been beaten to the internet by one Jim Morey. He built an animated applet along these same
         lines and won the grand prize at the Sun/Java programming contest in 1995. Java applets are no longer supported so I put this SVG
-        version up to fill the void. &copy; <i>2018 Joe Hartman</i>
+        version together to fill the void. <b>&copy; 2018 Joe Hartman</b>
       </p>
     </div>
   </body>
