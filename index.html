@@ -21,7 +21,7 @@
   <body>
     <div class="center">
       <h2 style="line-height:.9">Theorem of Pythagoras</h2>
-      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="335" height="340" viewBox="0 0 335 340" onload="Animate(evt)">
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="340" height="340" viewBox="0 0 340 340" onload="Animate(evt)">
         <script type="text/ecmascript">
           function Rotate(theta, ctr_x, ctr_y, shortln, longln, factor) {
             var short_x = shortln * Math.sin(theta + factor), short_y = shortln * Math.cos(theta + factor),
@@ -31,7 +31,7 @@
           }
 
           function Animate(evt) {
-            var contentStr, transformStr, attributeStr, delay, last_x = 140, last_y = 110, first_y = 110, flag = 2, theta = 1.57,
+            var contentStr, transformStr, attributeStr, delay, last_x = 140, last_y = 110, first_y = 110, flag = 0, theta = 1.57,
               triangle = evt.target.ownerDocument.getElementById("mytri"),
               msg1 = evt.target.ownerDocument.getElementById("text1"),
               msg2 = evt.target.ownerDocument.getElementById("text2");
