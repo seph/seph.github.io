@@ -48,24 +48,25 @@
 
               switch ( flag ) {
                 case 0:
-                  msg1.textContent = "(First skew)";
+                  msg1.textContent = "First skew:";
                   msg1.setAttribute("transform", "scale(.7) translate(70,290) rotate(-72)");
-                  msg2.textContent = "Size of green area isn't changing ->";
+                  msg1.setAttribute("font-weight", "bold");
+                  msg2.textContent = "size of green area isn't changing ->";
                   msg2.setAttribute("transform", "scale(.7) translate(110,230) rotate(-72)");
                   triangle.setAttribute("fill", "lightgreen");
                   triangle.setAttribute("points", "40,130 100,170 " + ( last_x++ ) + "," + ( last_x * 2 / 3 + 17 ));
                   if ( last_x == 230 ) { delay = 2000; flag = 1; } break;
                 case 1:
-                  msg1.textContent = "(Rotation)";
+                  msg1.textContent = "Rotation:";
                   msg1.setAttribute("transform", "scale(.7) translate(100,254) rotate(-33)");
-                  msg2.textContent = "Still not changing ->";
+                  msg2.textContent = "still not changing ->";
                   msg2.setAttribute("transform", "scale(.7) translate(140,249) rotate(-33)");
                   triangle.setAttribute("points", Rotate(theta -= 0.01, 100, 170, 71, 130, 2.55));
                   if ( 0 > theta ) { delay = 2000; flag = 2; } break;
                 case 2:
-                  msg1.textContent = "(Final skew)";
+                  msg1.textContent = "Final skew:";
                   msg1.setAttribute("transform", "scale(.7) translate(108,310)");
-                  msg2.textContent = "Same size we";
+                  msg2.textContent = "same area we";
                   msg2.setAttribute("transform", "scale(.7) translate(115,330)");
                   msg3.textContent = "started with! ->";
                   msg3.setAttribute("transform", "scale(.7) translate(128,350)");
