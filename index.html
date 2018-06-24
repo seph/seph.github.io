@@ -7,7 +7,6 @@
     body {
       background-color: #f5f5dc;
       text-align: center; /* this is required for old versions of IE */
-      font-family: "calibri";
     }
     #centered {
        width: 700px; /* this is the width of the center column (px, em or %) */
@@ -107,13 +106,15 @@
 
     <div id="centered">
       <p>
-        <b>Claim:</b> beginning in one of the squares above and continuing down to its corresponding rectangle below, the area of the green triangle in motion <i>does not change</i>.<br><br>
-        <b>Notice that:</b> we have two kinds of motion; rotation and skewing. Clearly the area of the rotating triangle isn't changing so let's turn our attention to the skewing triangle and consider the fact that:
+        <b>Claim:</b> beginning in the square adjacent to side <b>a</b> and proceeding down to the corresponding rectangle below, the area of the green triangle in motion <i>never changes</i>.<br><br>
+        Notice that we have two kinds of motion: rotation and skewing.
+        Clearly the area of the rotating triangle isn't changing so let's turn our attention to the skewing.
+        Following the motion of the green triangle as it traces its tip along side <b>b</b>, consider the fact that
       </p>
       <p class="center bold">area(triangle) = &frac12; base &times; height</p>
       <p>
-        <a href="https://www.youtube.com/watch?v=YOYQys52sPs">even for obtuse triangles</a>. And since triangle <span class="bold">abc</span> is right, the height of the first skewing triangle doesn't change, <i>nor does its area</i>.
-        By the same reasoning, since the skew follows the line dropped perpendicular to side <b>c</b>, the area of the final skewing triangle doesn't change either. <b><sub>QED baby</sub></b>
+        <a href="https://www.youtube.com/watch?v=YOYQys52sPs">even for obtuse triangles</a>. Since triangle <span class="bold">abc</span> is right, side <b>b</b> is parallel to the base of the green triangle and the height never changes, <i>nor does its area</i>.
+        By the same reasoning, the area of the triangle in motion during the post rotation skew doesn't change either since the height also remains the same. <b><sub>QED baby</sub></b>
       </p>
       <p class="center">
         So, from the animation:
