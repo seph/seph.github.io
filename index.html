@@ -4,6 +4,7 @@
     .small { font-size: small; }
     .center { text-align: center; }
     .bold { font-weight: bold; }
+    .nowrap { white-space: nowrap; }
     body {
       background-color: #f5f5dc;
       text-align: center; /* this is required for old versions of IE */
@@ -111,19 +112,19 @@
         Clearly the area of the rotating triangle isn't changing so let's turn our attention to the skewing.
         Follow the motion of the first skew as its tip traces along side <b>b</b> and consider the fact that
       </p>
-      <p class="center bold" style="line-height:.7">area(triangle) = &frac12; base &times; height</p>
+      <p class="center bold">area(triangle) = &frac12; base &times; height</p>
       <p>
         <a href="https://www.youtube.com/watch?v=YOYQys52sPs">even for obtuse triangles</a>. Also, since <span class="bold">abc</span> is a right triangle,
         side <b>b</b> is perpendicular to side <b>a</b> and parallel to the base of the first skewing triangle.
         So the height of the triangle never changes, <i>neither does its area</i>.
         By the same reasoning, the area of the second skewing triangle doesn't change either since its height remains the same throughout the skew. <b><sub>QED baby</sub></b>
       </p>
-      <p class="center" style="line-height:.7">
+      <p class="center">
         Hence, from the animation:
-        <span class="bold">&frac12; area(square) = &frac12; area(rectangle)</span>
-        implies <span class="bold">area(square) = area(rectangle)</span>
+        <span class="bold nowrap">&frac12; area(square) = &frac12; area(rectangle)</span>
+        implies <span class="bold nowrap">area(square) = area(rectangle)</span>
         <br><br>
-        Therefore <span class="bold">a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></span>
+        Therefore <span class="bold nowrap">a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></span>
       </p>
       <p class="small">** I came up with this back in the 90's only to discover that I'd been beaten to the internet by one Jim Morey. He built an animated applet along these same
         lines and won the grand prize at the Sun/Java programming contest in 1995. Java applets are no longer supported so I put this SVG
