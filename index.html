@@ -1,27 +1,32 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <style media="screen" type="text/css">
-    p { font-size: 16; }
+    p { font-size: 16; margin-top: 0.6em; margin-bottom: 0em;}
     .small { font-size: small; }
     .center { text-align: center; }
     .bold { font-weight: bold; }
     .nowrap { white-space: nowrap; }
+
     body {
       background-color: #f5f5dc;
-      text-align: center; /* this is required for old versions of IE */
+      font-family : sans-serif;
     }
+
     #centered {
        width: 700px; /* this is the width of the center column (px, em or %) */
        text-align: left; /*resets the text alignment back to left */
        margin: 0 auto; /* auto centers the div in standards complaint browsers */
+       padding: 10;
     }
+
     @media only screen and (min-width: 64em) {
-      p { font-size: 15; line-height: 0.9; }
+      p { font-size: 18; }
     }
   </style>
 
   <body>
-    <div class="center">
-      <h2 style="line-height:.5">Theorem of Pythagoras</h2>
+    <br>
+    <center><h1>Theorem of Pythagoras</h1></center>
+    <div style="float: right; margin: 30px; width: 335px">
       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="335" height="340" viewBox="0 0 335 340" onload="Animate(evt)">
         <script type="text/ecmascript">
           function Rotate(theta, ctr_x, ctr_y, shortln, longln, factor) {
@@ -58,7 +63,7 @@
                   triangle.setAttribute("points", "40,130 100,170 " + ( last_x++ ) + "," + ( last_x * 2 / 3 + 17 ));
                   if ( last_x == 230 ) { delay = 2000; flag = 1; } break;
                 case 1:
-                  msg1.textContent = "Rotation";
+                  msg1.textContent = "Rotating";
                   msg1.setAttribute("transform", "scale(.7) translate(100,254) rotate(-33)");
                   msg2.textContent = "still not changing ->";
                   msg2.setAttribute("transform", "scale(.7) translate(140,249) rotate(-33)");
@@ -102,30 +107,32 @@
         <text transform="translate(185,135)">b</text>
         <text transform="translate(160,185)">c</text>
       </svg>
-      <p class="small">Animation follows the same general approach as <a href="https://mathcs.clarku.edu/~djoyce/elements/bookI/propI47.html">Euclid's Elements: Proposition 47</a></p>
+      <p class="small center">
+        Animation follows the same general approach as in <a href="https://mathcs.clarku.edu/~djoyce/elements/bookI/propI47.html">Euclid's Elements: Proposition 47</a>
+      </p>
     </div>
 
-    <div id="centered">
+    <div style="margin: 20px">
       <p>
-        <b>Claim:</b> beginning in the square adjacent to side <b>a</b> and proceeding down to the corresponding rectangle below, the area of the green triangle in motion <i>never changes</i>.<br><br>
-        Notice that we have two kinds of motion: rotation and skewing.
-        Clearly the area of the rotating triangle isn't changing so let's turn our attention to the skewing.
-        Follow the motion of the first skew as its tip traces along side <b>b</b> and consider the fact that
+        <b>I claim</b> that the area of the green triangle in motion, beginning in the square adjacent to side <b>a</b> and proceeding down to the corresponding rectangle below, <i>never changes</i>.<br><br>
+        Notice how we have two kinds of motion: rotation and skewing.
+        Clearly the area of the rotating triangle isn't changing so let's turn our attention to the skewing triangles.
+        Refresh the page and follow the motion of the first skewing triangle as its tip traces along side <b>b</b>. Now consider the fact that:
       </p>
-      <p class="center bold">area(triangle) = &frac12; base &times; height</p>
+      <p class="center bold">area of a triangle = &frac12; (base &times; height)</p>
       <p>
-        <a href="https://www.youtube.com/watch?v=YOYQys52sPs">even for obtuse triangles</a>. Also, since <span class="bold">abc</span> is a right triangle,
-        side <b>b</b> is perpendicular to side <b>a</b> and parallel to the base of the first skewing triangle.
+        <a href="https://www.youtube.com/watch?v=YOYQys52sPs">even for obtuse triangles</a>. And since <span class="bold">abc</span> is a right triangle(<i>the angle between sides <b>a</b> and <b>b</b> is 90&deg;</i>),
+        side <b>b</b> is perpendicular to side <b>a</b> and parallel to the base of the skewing triangle.
         So the height of the triangle never changes, <i>neither does its area</i>.
-        By the same reasoning, the area of the second skewing triangle doesn't change either since its height remains the same throughout the skew. <b><sub>QED baby</sub></b>
+        By the same reasoning, the area of the second skewing triangle doesn't change either since its height also remains the same throughout the skew. <b><sub>QED baby</sub></b>
       </p>
-      <p class="center">
-        Hence, from the animation:
-        <span class="bold nowrap">&frac12; area(square) = &frac12; area(rectangle)</span>
-        implies <span class="bold nowrap">area(square) = area(rectangle)</span>
-        <br><br>
-        Therefore <span class="bold nowrap">a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></span>
-      </p>
+      <p>So, from the animation:</p>
+      <p class="center bold">&frac12; area(square) = &frac12; area(rectangle)</p>
+      <p>and</p>
+      <p class="center bold">area(square) = area(rectangle)</p>
+      <p>Therefore:</p>
+      <p class="center bold">a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></span></p>
+      <br><br>
       <p class="small">** I came up with this back in the 90's only to discover that I'd been beaten to the internet by one Jim Morey. He built an animated applet along these same
         lines and won the grand prize at the Sun/Java programming contest in 1995. Java applets are no longer supported so I put this SVG
         version together to fill the void. <b>&copy; 2018 Joe Hartman</b>
