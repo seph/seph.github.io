@@ -1,140 +1,144 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <style media="screen" type="text/css">
-    p { font-size: 16; margin-top: 0.6em; margin-bottom: 0em;}
-    .small { font-size: small; }
-    .center { text-align: center; }
-    .bold { font-weight: bold; }
-    .nowrap { white-space: nowrap; }
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    body {
-      background-color: #f5f5dc;
-      font-family : sans-serif;
-    }
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">  
 
-    #centered {
-       width: 700px; /* this is the width of the center column (px, em or %) */
-       text-align: left; /*resets the text alignment back to left */
-       margin: 0 auto; /* auto centers the div in standards complaint browsers */
-       padding: 10;
-    }
-  </style>
+    <style media="screen" type="text/css">
+      .small { font-size: small; }
+      .center { text-align: center; }
+      .bold { font-weight: bold; }
+
+      body {
+        background: #f5f5dc;
+      }
+    </style>
+  </head>
 
   <body>
-    <br>
     <center><h1>Theorem of Pythagoras</h1></center>
-    <br>
-    <div style="float: right; width: 21em; height: 25em; margin: 2em; background-color: none">
-      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="335" height="340" viewBox="0 0 335 340" onload="Animate(evt)">
-        <script type="text/ecmascript">
-          function Rotate(theta, ctr_x, ctr_y, shortln, longln, factor) {
-            var short_x = shortln * Math.sin(theta + factor), short_y = shortln * Math.cos(theta + factor),
-                long_x = longln * Math.sin(theta), long_y = longln * Math.cos(theta);
+    <div class="container">
+      <div class="row">
+        <div class="col-md">
+          <p>
+            The area of the green triangle in motion, beginning in the square adjacent to side <b>a</b> and proceeding down to the corresponding rectangle below, <i>never changes</i>.<br><br>
+            <b>Notice how</b> we have two kinds of motion: rotation and skewing.
+            Clearly the area of the rotating triangle isn't changing so let's turn our attention to the skewing triangles.
+            Refresh the page and follow the motion of the first skewing triangle as its tip traces along side <b>b</b>. Now consider the fact that:
+          </p>
+          <p class="center bold">area of a triangle = &frac12; (base &times; height)</p>
+          <p>
+            <a href="https://www.youtube.com/watch?v=YOYQys52sPs"><i>even for obtuse triangles</i></a>. And since triangle <span class="bold">abc</span> is right(<i>the angle between sides <b>a</b> and <b>b</b> is 90&deg;</i>),
+            side <b>b</b> is perpendicular to side <b>a</b> and parallel to the base of the skewing triangle.
+            So the height of the triangle never changes, <i>neither does its area</i>.
+            By the same reasoning, the area of the second skewing triangle doesn't change either since its height also remains the same throughout the skew. <b><sub>QED baby</sub></b>
+          </p>
+          <p>So, from the animation:</p>
+          <p class="center bold">&frac12; area(square) = &frac12; area(rectangle)</p>
+          <p>and</p>
+          <p class="center bold">area(square) = area(rectangle)</p>
+          <p>Therefore:</p>
+          <p class="center bold">a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></span></p>
+        </div>
 
-            return (short_x + ctr_x) + "," + (short_y + ctr_y) + " " + ctr_x + "," + ctr_y + " " + (long_x + ctr_x) + "," + (long_y + ctr_y);
-          }
+        <div class="col-md-4 text-center">
+          <br>
+          <br>
+          <br>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="335" height="360" viewBox="0 0 335 360" onload="Animate(evt)">
+            <script type="text/ecmascript">
+              function Rotate(theta, ctr_x, ctr_y, shortln, longln, factor) {
+                var short_x = shortln * Math.sin(theta + factor), short_y = shortln * Math.cos(theta + factor),
+                    long_x = longln * Math.sin(theta), long_y = longln * Math.cos(theta);
 
-          function Animate(evt) {
-            var contentStr, transformStr, attributeStr, delay, last_x = 140, last_y = 110, first_y = 110, flag = 0, theta = 1.57,
-              triangle = evt.target.ownerDocument.getElementById("mytri"),
-              msg1 = evt.target.ownerDocument.getElementById("text1"),
-              msg2 = evt.target.ownerDocument.getElementById("text2");
-              msg3 = evt.target.ownerDocument.getElementById("text3");
-
-            setTimeout(function Transform() {
-              if ( 140 == last_x ) {
-                delay = 2000;   // pause if starting over
-              } else if ( flag == 3 ) {
-                delay = 60;     // slow down first leg of RH animation
-              } else {
-                delay = 40;     // default speed
+                return (short_x + ctr_x) + "," + (short_y + ctr_y) + " " + ctr_x + "," + ctr_y + " " + (long_x + ctr_x) + "," + (long_y + ctr_y);
               }
 
-              switch ( flag ) {
-                case 0:
-                  msg1.textContent = "First Skew";
-                  msg1.setAttribute("transform", "scale(.7) translate(70,290) rotate(-72)");
-                  msg1.setAttribute("font-weight", "bold");
-                  msg2.textContent = "size of green area isn't changing ->";
-                  msg2.setAttribute("transform", "scale(.7) translate(110,230) rotate(-72)");
-                  triangle.setAttribute("fill", "lightgreen");
-                  triangle.setAttribute("points", "40,130 100,170 " + ( last_x++ ) + "," + ( last_x * 2 / 3 + 17 ));
-                  if ( last_x == 230 ) { delay = 2000; flag = 1; } break;
-                case 1:
-                  msg1.textContent = "Rotating";
-                  msg1.setAttribute("transform", "scale(.7) translate(100,254) rotate(-33)");
-                  msg2.textContent = "still not changing ->";
-                  msg2.setAttribute("transform", "scale(.7) translate(140,249) rotate(-33)");
-                  triangle.setAttribute("points", Rotate(theta -= 0.01, 100, 170, 71, 130, 2.55));
-                  if ( 0 > theta ) { delay = 2000; flag = 2; } break;
-                case 2:
-                  msg1.textContent = "Second Skew";
-                  msg1.setAttribute("transform", "scale(.7) translate(118,310)");
-                  msg2.textContent = "same area we";
-                  msg2.setAttribute("transform", "scale(.7) translate(115,330)");
-                  msg3.textContent = "started with! ->";
-                  msg3.setAttribute("transform", "scale(.7) translate(128,350)");
-                  triangle.setAttribute("points", "140," + ( ++first_y ) + " 100,170 100,300");
-                  if ( first_y == 170 ) { delay = 2000; flag = 3; first_y = 110; last_x = 140; last_y = 109; } break;
-                case 3:
-                  msg1.textContent = ""; msg2.textContent = ""; msg3.textContent = "";
-                  triangle.setAttribute("points", "290,80 230,170 " + ( last_x-- ) + "," + ( last_y += 1.48 ));
-                  if ( last_y > 169 ) { delay = 2000; flag = 4; theta = 2.55; } break;
-                case 4:
-                  triangle.setAttribute("points", Rotate(theta += 0.01, 230, 170, 129, 107, 2.15));
-                  if ( theta > 4.12 ) { delay = 2000; flag = 5; } break;
-                case 5:
-                  triangle.setAttribute("points", "140," + ( ++first_y ) + " 230,170 230,300");
-                  if ( first_y == 170 ) { delay = 2000; flag = 0; first_y = 110; last_x = 140; last_y = 160; theta = 1.57; } break;
-              }
+              function Animate(evt) {
+                var contentStr, transformStr, attributeStr, delay, last_x = 140, last_y = 110, first_y = 110, flag = 0, theta = 1.57,
+                  triangle = evt.target.ownerDocument.getElementById("mytri"),
+                  msg1 = evt.target.ownerDocument.getElementById("text1"),
+                  msg2 = evt.target.ownerDocument.getElementById("text2");
+                  msg3 = evt.target.ownerDocument.getElementById("text3");
 
-          		setTimeout(Transform, delay);
-          	}, delay);
-        	}
-        </script>
-        <rect width="100%" height="100%" fill="white" stroke="black" />
-        <polygon id="mytri" style="stroke:black; stroke-width:1" />
-        <text id="text1" text-anchor="end" />
-        <text id="text2" text-anchor="end" />
-        <text id="text3" text-anchor="end" />
-        <polygon style="fill:none; stroke:gray;" points="140,111 140,299" />
-        <rect x="100" y="170" width="130" height="130" fill="none" stroke="black" />
-        <polygon style="fill:none; stroke:black;" points="40,130 100,170 140,110 80,70" />
-        <polygon style="fill:none; stroke:black;" points="290,80 230,170 140,110 200,20" />
-        <text transform="translate(105,140)">a</text>
-        <text transform="translate(185,135)">b</text>
-        <text transform="translate(160,185)">c</text>
-      </svg>
-      <p class="small center">
-        Animation follows the same general approach as in <a href="https://mathcs.clarku.edu/~djoyce/elements/bookI/propI47.html">Euclid's Elements: Proposition 47</a>
-      </p>
+                setTimeout(function Transform() {
+                  if ( 140 == last_x ) {
+                    delay = 2000;   // pause if starting over
+                  } else if ( flag == 3 ) {
+                    delay = 60;     // slow down first leg of RH animation
+                  } else {
+                    delay = 40;     // default speed
+                  }
+
+                  switch ( flag ) {
+                    case 0:
+                      msg1.textContent = "First Skew";
+                      msg1.setAttribute("transform", "scale(.7) translate(70,290) rotate(-72)");
+                      msg1.setAttribute("font-weight", "bold");
+                      msg2.textContent = "size of green area isn't changing ->";
+                      msg2.setAttribute("transform", "scale(.7) translate(110,230) rotate(-72)");
+                      triangle.setAttribute("fill", "lightgreen");
+                      triangle.setAttribute("points", "40,130 100,170 " + ( last_x++ ) + "," + ( last_x * 2 / 3 + 17 ));
+                      if ( last_x == 230 ) { delay = 2000; flag = 1; } break;
+                    case 1:
+                      msg1.textContent = "Rotating";
+                      msg1.setAttribute("transform", "scale(.7) translate(100,254) rotate(-33)");
+                      msg2.textContent = "still not changing ->";
+                      msg2.setAttribute("transform", "scale(.7) translate(140,249) rotate(-33)");
+                      triangle.setAttribute("points", Rotate(theta -= 0.01, 100, 170, 71, 130, 2.55));
+                      if ( 0 > theta ) { delay = 2000; flag = 2; } break;
+                    case 2:
+                      msg1.textContent = "Second Skew";
+                      msg1.setAttribute("transform", "scale(.7) translate(118,310)");
+                      msg2.textContent = "same area we";
+                      msg2.setAttribute("transform", "scale(.7) translate(115,330)");
+                      msg3.textContent = "started with! ->";
+                      msg3.setAttribute("transform", "scale(.7) translate(128,350)");
+                      triangle.setAttribute("points", "140," + ( ++first_y ) + " 100,170 100,300");
+                      if ( first_y == 170 ) { delay = 2000; flag = 3; first_y = 110; last_x = 140; last_y = 109; } break;
+                    case 3:
+                      msg1.textContent = ""; msg2.textContent = ""; msg3.textContent = "";
+                      triangle.setAttribute("points", "290,80 230,170 " + ( last_x-- ) + "," + ( last_y += 1.48 ));
+                      if ( last_y > 169 ) { delay = 2000; flag = 4; theta = 2.55; } break;
+                    case 4:
+                      triangle.setAttribute("points", Rotate(theta += 0.01, 230, 170, 129, 107, 2.15));
+                      if ( theta > 4.12 ) { delay = 2000; flag = 5; } break;
+                    case 5:
+                      triangle.setAttribute("points", "140," + ( ++first_y ) + " 230,170 230,300");
+                      if ( first_y == 170 ) { delay = 2000; flag = 0; first_y = 110; last_x = 140; last_y = 160; theta = 1.57; } break;
+                  }
+
+              		setTimeout(Transform, delay);
+              	}, delay);
+            	}
+            </script>
+            <rect width="100%" height="100%" fill="white" stroke="black" />
+            <polygon id="mytri" style="stroke:black; stroke-width:1" />
+            <text id="text1" text-anchor="end" />
+            <text id="text2" text-anchor="end" />
+            <text id="text3" text-anchor="end" />
+            <polygon style="fill:none; stroke:gray;" points="140,111 140,299" />
+            <rect x="100" y="170" width="130" height="130" fill="none" stroke="black" />
+            <polygon style="fill:none; stroke:black;" points="40,130 100,170 140,110 80,70" />
+            <polygon style="fill:none; stroke:black;" points="290,80 230,170 140,110 200,20" />
+            <text transform="translate(105,140)">a</text>
+            <text transform="translate(185,135)">b</text>
+            <text transform="translate(160,185)">c</text>
+          </svg>
+          <p class="small">
+            Animation follows the same general approach as in <a href="https://mathcs.clarku.edu/~djoyce/elements/bookI/propI47.html">Euclid's Elements: Proposition 47</a>
+          </p>
+        </div>
+      </div>
     </div>
 
-    <div style="margin: 20px; float: none; background-color: none;">
-      <p>
-        <b>I claim that</b> the area of the green triangle in motion, beginning in the square adjacent to side <b>a</b> and proceeding down to the corresponding rectangle below, <i>never changes</i>.<br><br>
-        <b>Notice how</b> we have two kinds of motion: rotation and skewing.
-        Clearly the area of the rotating triangle isn't changing so let's turn our attention to the skewing triangles.
-        Refresh the page and follow the motion of the first skewing triangle as its tip traces along side <b>b</b>. Now consider the fact that:
-      </p>
-      <p class="center bold">area of a triangle = &frac12; (base &times; height)</p>
-      <p>
-        <a href="https://www.youtube.com/watch?v=YOYQys52sPs"><i>even for obtuse triangles</i></a>. And since triangle <span class="bold">abc</span> is right(<i>the angle between sides <b>a</b> and <b>b</b> is 90&deg;</i>),
-        side <b>b</b> is perpendicular to side <b>a</b> and parallel to the base of the skewing triangle.
-        So the height of the triangle never changes, <i>neither does its area</i>.
-        By the same reasoning, the area of the second skewing triangle doesn't change either since its height also remains the same throughout the skew. <b><sub>QED baby</sub></b>
-      </p>
-      <p>So, from the animation:</p>
-      <p class="center bold">&frac12; area(square) = &frac12; area(rectangle)</p>
-      <p>and</p>
-      <p class="center bold">area(square) = area(rectangle)</p>
-      <p>Therefore:</p>
-      <p class="center bold">a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></span></p>
-    </div>
+    <p class="small">** I came up with this back in the 90's only to discover that I'd been beaten to the internet by one Jim Morey. He built an animated applet along these same lines and won the grand prize at the Sun/Java programming contest in 1995. Java applets are no longer supported so I put this SVG version together to get it back up on the web. <b>&copy; 2018 Joe Hartman</b>
+    </p>
 
-    <br>
-    <div style="margin: 20px; float: none; background-color: none">
-      <p class="small">** I came up with this back in the 90's only to discover that I'd been beaten to the internet by one Jim Morey. He built an animated applet along these same lines and won the grand prize at the Sun/Java programming contest in 1995. Java applets are no longer supported so I put this SVG version together to get it back up on the web. <b>&copy; 2018 Joe Hartman</b>
-      </p>
-    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   </body>
 </html>
