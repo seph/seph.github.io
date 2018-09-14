@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">  
 
     <style media="screen" type="text/css">
-      p { line-height: 1.3 }
+      p { line-height: 1.25 }
       .small { font-size: small; }
       .center { text-align: center; }
       .bold { font-weight: bold; }
@@ -21,9 +21,10 @@
 
   <body>
     <h1 class="text-center display-4">Theorem of Pythagoras - Animated Proof</h1>
+    <hr>
     <div class="container">
       <div class="row">
-        <div class="col-md-4 text-right">
+        <div class="col-md-5 text-center">
           <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="335" height="360" viewBox="0 0 335 360" onload="Animate(evt)">
             <script type="text/ecmascript">
               function Rotate(theta, ctr_x, ctr_y, shortln, longln, factor) {
@@ -105,13 +106,14 @@
             <text transform="translate(160,185)">c</text>
           </svg>
           <p class="small">
-            Animation follows the same general approach as in <a href="https://mathcs.clarku.edu/~djoyce/elements/bookI/propI47.html">Euclid's Elements: Proposition 47</a>
+            Animation follows the same general approach as in <a href="https://mathcs.clarku.edu/~djoyce/elements/bookI/propI47.html"><br>
+            Euclid's Elements: Proposition 47</a>
           </p>
         </div>
 
         <div class="col-md">
           <p>
-            <b>Claim:</b> the area of the green triangle in motion, beginning in the square adjacent to side <b>a</b> and proceeding down to the corresponding rectangle below, <em>never changes</em>.<br><br>
+            <b>I claim</b> that the area of the green triangle in motion, beginning in the square adjacent to side <b>a</b> and proceeding down to the corresponding rectangle below, <em>never changes</em>.<br><br>
             <b>Notice how</b> we have two kinds of motion: rotation and skewing.
             Clearly the area of the rotating triangle isn't changing so let's turn our attention to the skewing triangles.
             Refresh the page and follow the motion of the first skewing triangle as its tip traces along side <b>b</b>. Now consider the fact that:
