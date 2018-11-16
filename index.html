@@ -20,8 +20,8 @@
   </head>
 
   <body>
-    <h1 class="text-center display-4">Theorem of Pythagoras - Animated Proof</h1>
-    <hr>
+    <h1 class="text-center display-4">Theorem of Pythagoras</h1>
+    <br>
     <div class="container">
       <div class="row">
         <div class="col-md-5 text-center">
@@ -113,29 +113,30 @@
 
         <div class="col-md">
           <p>
-            <b>I claim</b> that the area of the green triangle in motion beginning in the square adjacent to side <b>a</b> never changes as it proceeds down to the corresponding rectangle below.<br><br>
-            <b>Notice how</b> we have two kinds of motion: rotation and skewing.
-            Clearly the area of the rotating triangle isn't changing so let's turn our attention to the skewing triangles.
+            <b>I claim</b> that the area of the triangle in motion beginning in the square adjacent to side <b>a</b> never changes as it proceeds down to the corresponding rectangle below.<br><br>
+            Notice that we have two kinds of motion: rotation and skewing.
+            Clearly the area of the rotating triangle isn't changing so let's turn our attention to the process of skewing.
             Refresh the page and follow the motion of the first skewing triangle as its tip traces along side <b>b</b>. Now consider the fact that:
           </p>
           <p class="center bold">area of a triangle = &frac12; (base &times; height)</p>
           <p>
-            <a href="https://www.youtube.com/watch?v=YOYQys52sPs&t=7m"><em>even for obtuse triangles</em></a>. And since triangle <span class="bold">abc</span> is right(<em>the angle between sides <b>a</b> and <b>b</b> is 90&deg;</em>),
+            <a href="https://www.youtube.com/watch?v=YOYQys52sPs&t=7m"><em>even for obtuse triangles</em></a>. Triangle <span class="bold">abc</span> is right(<em>the angle between sides <b>a</b> and <b>b</b> is 90&deg;</em>) so
             side <b>b</b> is perpendicular to side <b>a</b> and parallel to the base of the skewing triangle.
             So the height of the skewing triangle never changes, <em>neither does its area</em>.
-            The area of the second skewing triangle doesn't change either since its height also remains the same throughout the skewing process. <b><sub>QED baby</sub></b>
+            The area of the second skewing triangle(following the rotation) doesn't change either since its height remains the same throughout the skewing process. <b><sub>QED baby</sub></b>
           </p>
-          <p><b>The above argument</b> also holds true for the <b>b</b> side animation. Hence, from watching the animations we get:</p>
+          <hr>
+          <p>The above argument also holds true for the triangle starting from side <b>b</b>. So in both cases, the triangles starting from <b>a</b> and <b>b</b>, the animation shows us:</p>
           <p class="center bold">&frac12; area(square) = &frac12; area(rectangle)</p>
           <p class="center bold">area(square) = area(rectangle)</p>
-          <p>for both sides <b>a</b> and <b>b</b>. And combining them gives us:</p>
+          <p>Taken together we see that:</p>
           <p class="center bold">a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></span></p>
         </div>
 
       </div>
 
       <div class="row">
-        <p class="small">** I came up with this back in the 90's only to discover that I'd been beaten to the internet by one Jim Morey. He built an animated applet along these same lines and won the grand prize at the Sun/Java programming contest in 1995. This came to me after seeing two things: the proof presented in <i>Euclids Elements: Proposition 47</i> and the section on "animated functions"(I don't remember what they were called but that's what they did) in <i>Fractals Everywhere</i>. Since Java applets are no longer supported in modern browsers, I put this SVG version together to get it back up on the web. <b>&copy; 2018 Joe Hartman</b>
+        <p class="small">** I came up with this back in the 90's only to discover that I'd been beaten to the internet by one Jim Morey who built an animated applet along these same lines and won the grand prize in the 1995 Sun/Java programming contest. It came to me after perusing two books: <i>Euclids Elements</i>(Proposition 47) and <i>Fractals Everywhere</i>. Since Java applets are no longer supported I put this SVG version together to get it back up on the web. <b>&copy; 2018 Joe Hartman</b>
         </p>
       </div>
     </div>
