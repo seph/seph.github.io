@@ -78,6 +78,7 @@
                       if ( first_y == 170 ) { delay = 2000; flag = 3; first_y = 110; last_x = 140; last_y = 109; } break;
                     case 3:
                       msg1.textContent = ""; msg2.textContent = ""; msg3.textContent = "";
+                      triangle.setAttribute("fill", "lightblue");
                       triangle.setAttribute("points", "290,80 230,170 " + ( last_x-- ) + "," + ( last_y += 1.48 ));
                       if ( last_y > 169 ) { delay = 2000; flag = 4; theta = 2.55; } break;
                     case 4:
@@ -126,7 +127,7 @@
             The area of the second skewing triangle(following the rotation) doesn't change either since its height remains the same throughout the skewing process. <b><sub>QED baby</sub></b>
           </p>
           <hr>
-          <p>The above argument also holds true for the triangle starting from side <b>b</b>. So in both cases, the triangles starting from either <b>a</b> or <b>b</b>, the animation shows us:</p>
+          <p>The above argument also holds true for the moving triangle starting from side <b>b</b>. In each case the animation illustrates:</p>
           <p class="center bold">&frac12; area(square) = &frac12; area(rectangle)</p>
           <p class="center bold">area(square) = area(rectangle)</p>
           <p>Taken together we see that:</p>
