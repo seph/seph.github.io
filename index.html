@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">  
 
     <style media="screen" type="text/css">
-      p { line-height: 1.25 }
+      p { line-height: 1.2 }
       .small { font-size: small; }
       .center { text-align: center; }
       .bold { font-weight: bold; }
@@ -114,7 +114,7 @@
 
         <div class="col-md">
           <p>
-            <b>I claim:</b> the area of the green triangle in motion never changes as it proceeds from the square adjacent to side <b>a</b> down to the corresponding rectangle below.<br><br>
+            <b>Claim:</b> the area of the green triangle in motion never changes as it proceeds from the square adjacent to side <b>a</b> down to the corresponding rectangle below.<br><br>
             Notice that we have two kinds of motion: rotation and skewing.
             Clearly the area of the rotating triangle isn't changing so let's turn our attention to the process of skewing.
             Refresh the page and follow the motion of the first skewing triangle as its tip traces along side <b>b</b>. Now consider the fact that:
@@ -128,16 +128,17 @@
           </p>
           <hr>
           <p>The above argument also holds true for the blue triangle starting from side <b>b</b>. In both cases the animation illustrates that:</p>
-          <p class="center bold">&frac12; area(square) = &frac12; area(rectangle)</p>
-          <p class="center bold">area(square) = area(rectangle)</p>
-          <p>Combining the results for both sides <b>a</b> and <b>b</b> gives:</p>
+          <p class="center bold">&frac12; area(square) = &frac12; area(corresponding rectangle)</p>
+          <p style="line-height: .1">hence</p>
+          <p class="center bold">area(square) = area(corresponding rectangle)</p>
+          <p>Combining the results for both sides <b>a</b> and <b>b</b> gives us:</p>
           <p class="center bold">a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></span></p>
         </div>
 
       </div>
 
       <div class="row">
-        <p class="small">** I came up with this back in the 90's only to discover that I'd been beaten to the internet by one Jim Morey who built an animated applet along these same lines and won the grand prize in the 1995 Sun/Java programming contest. It came to me after perusing two books: <i>Euclids Elements</i>(Proposition 47) and <i>Fractals Everywhere</i>. Since Java applets are no longer supported I put this SVG version together to get it back up on the web. <b>&copy; 2018 Joe Hartman</b>
+        <p class="small">** I came up with this back in the 90's only to discover that I'd been beaten to the internet by one Jim Morey who built an animated applet along these same lines and won the grand prize in the 1995 Sun/Java programming contest. It came to me after reading two books: <i>Euclids Elements</i>(Proposition 47) and <i>Fractals Everywhere</i>. Since Java applets are no longer supported I put this SVG version together to get it back up on the web. <b>&copy; 2018 Joe Hartman</b>
         </p>
       </div>
     </div>
