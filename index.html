@@ -10,8 +10,6 @@
     <style media="screen" type="text/css">
       p { line-height: 1.2 }
       .small { font-size: small; }
-      .center { text-align: center; }
-      .bold { font-weight: bold; }
 
       body {
         background: #f5f5dc;
@@ -26,7 +24,7 @@
       <div class="row">
         <div class="col-md-5 text-center">
           <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="335" height="360" viewBox="0 0 335 360" onload="Animate(evt)">
-            <script type="text/ecmascript">
+            <script>
               function Rotate(theta, ctr_x, ctr_y, shortln, longln, factor) {
                 var short_x = shortln * Math.sin(theta + factor), short_y = shortln * Math.cos(theta + factor),
                     long_x = longln * Math.sin(theta), long_y = longln * Math.cos(theta);
@@ -106,6 +104,7 @@
             <text transform="translate(185,135)">b</text>
             <text transform="translate(160,185)">c</text>
           </svg>
+
           <p class="small">
             Animation follows the same general approach as in <a href="https://mathcs.clarku.edu/~djoyce/elements/bookI/propI47.html"><br>
             Euclid's Elements: Proposition 47</a>
@@ -114,29 +113,30 @@
 
         <div class="col-md">
           <p>
-            <b>Claim:</b> the area of the triangle in motion never changes as it embarks from the square above and continues down to the corresponding rectangle below.<br><br>
-            Notice that we have two kinds of motion: rotation and skewing.
+            <b>Claim:</b> The area of the green triangle in motion never changes.<br><br>
+            Notice that we have two kinds of motion: rotating and skewing.
             Clearly the area of the rotating triangle isn't changing so let's turn our attention to the skewing process:
             Refresh this page and observe the motion of the green triangle starting from side <b>a</b>, its tip tracing along side <b>b</b>. Now consider the fact that:
           </p>
-          <p class="center bold">area of a triangle = &frac12; (base &times; height)</p>
+          <p class="text-center font-weight-bold">area of a triangle = &frac12; (base &times; height)</p>
           <p>
-            <a href="https://www.youtube.com/watch?v=YOYQys52sPs&t=7m"><em>even for obtuse triangles</em></a>. <b>abc</b> is a right triangle(<em>the angle between sides <b>a</b> and <b>b</b> is 90&deg;</em>) so
+            <a href="https://www.youtube.com/watch?v=YOYQys52sPs&t=7m"><em>even for obtuse triangles</em></a>. Also, <b>abc</b> is a right triangle(<em>the angle between sides <b>a</b> and <b>b</b> is 90&deg;</em>) so
             side <b>b</b> is perpendicular to side <b>a</b> and thus parallel to the base of the skewing triangle.
             Therefore the height of the skewing triangle never changes - <em>neither does its area</em>.
-            The area of the skewing triangle following the rotation doesn't change either since its height also remains the same throughout the skewing process. <b><sub>QED baby</sub></b>
+            The area of the skewing triangle following the rotation doesn't change either since its height remains the same throughout the skewing process. <b><sub>QED baby</sub></b>
           </p>
           <p>The argument above also holds true for the blue triangle in motion starting from side <b>b</b>.</p>
           <hr>
           <p>In both cases the animation shows that:</p>
-          <p class="center bold">&frac12; area(square) = &frac12; area(rectangle)</p>
+          <p class="text-center font-weight-bold">&frac12; area(square) = &frac12; area(rectangle)</p>
           <p style="line-height: .1">Hence:</p>
-          <p class="center bold">area(square) = area(rectangle)</p>
+          <p class="text-center font-weight-bold">area(square) = area(rectangle)</p>
           <p>Combining the results for both sides <b>a</b> and <b>b</b> gives us:</p>
-          <p class="center bold">a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></span></p>
+          <p class="text-center font-weight-bold">a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></span></p>
         </div>
-
       </div>
+
+      <br>
 
       <div>
         <p class="small"><b>Full disclosure:</b> The idea for this came to me back in the 90's after reading two books: <i>Euclids Elements</i>(Proposition 47) and <i>Fractals Everywhere</i>. Come to find out that one Jim Morey had beaten me to the internet with an animated Java applet(earning him the grand prize for programming at the first Sun/Java conference in 1995). Java applets are no longer supported so I put this SVG version up to get it back on the web. <b>&copy; 2019 Joe Hartman</b>
