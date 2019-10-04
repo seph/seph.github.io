@@ -1,11 +1,9 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Pythagoras</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">  
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <style media="screen" type="text/css">
       p { line-height: 1.2 }
@@ -18,11 +16,12 @@
   </head>
 
   <body>
-    <h1 class="text-center display-4">Theorem of Pythagoras</h1>
-    <br>
+    <h1 class="text-center display-4">Theorem of Pythagoras</h1><br>
+
     <div class="container">
       <div class="row">
         <div class="col-md-5 text-center">
+
           <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="335" height="360" viewBox="0 0 335 360" onload="Animate(evt)">
             <script>
               function Rotate(theta, ctr_x, ctr_y, shortln, longln, factor) {
@@ -53,7 +52,7 @@
                       msg1.textContent = "First Skew";
                       msg1.setAttribute("transform", "scale(.7) translate(70,290) rotate(-72)");
                       msg1.setAttribute("font-weight", "bold");
-                      msg2.textContent = "size of green area isn't changing ->";
+                      msg2.textContent = "height and area not changing ->";
                       msg2.setAttribute("transform", "scale(.7) translate(110,230) rotate(-72)");
                       triangle.setAttribute("fill", "lightgreen");
                       triangle.setAttribute("points", "40,130 100,170 " + ( last_x++ ) + "," + ( last_x * 2 / 3 + 17 ));
@@ -91,6 +90,7 @@
               	}, delay);
             	}
             </script>
+
             <rect width="100%" height="100%" fill="white" stroke="black" />
             <polygon id="mytri" style="stroke:black; stroke-width:1" />
             <text id="text1" text-anchor="end" />
@@ -112,40 +112,36 @@
         </div>
 
         <div class="col-md">
+          <p><b>Claim:</b> The area of the triangle in motion never changes.</p>
           <p>
-            <b>Claim:</b> The area of the green triangle in motion never changes.<br><br>
             Notice that we have two kinds of motion: rotating and skewing.
             Clearly the area of the rotating triangle isn't changing so let's turn our attention to the skewing process:
             Refresh this page and observe the motion of the green triangle starting from side <b>a</b>, its tip tracing along side <b>b</b>. Now consider the fact that:
           </p>
-          <p class="text-center font-weight-bold">area of a triangle = &frac12; (base &times; height)</p>
+          <p><center><b>area(triangle) = &frac12; (base &times; height)</b></center></p>
           <p>
             <a href="https://www.youtube.com/watch?v=YOYQys52sPs&t=7m"><em>even for obtuse triangles</em></a>. Also, <b>abc</b> is a right triangle(<em>the angle between sides <b>a</b> and <b>b</b> is 90&deg;</em>) so
             side <b>b</b> is perpendicular to side <b>a</b> and thus parallel to the base of the skewing triangle.
-            Therefore the height of the skewing triangle never changes, <em>neither does its area</em>.
-            The post rotation triangle's area doesn't change either since the height remains the same throughout the skewing process. <b><sub>QED baby</sub></b>
+            Therefore the height of the skewing triangle never changes, <em>and neither does its area</em>.
+            The area of the skewing triangle after the rotation doesn't change either since the height of the triangle also remains the same throughout the skewing process. This also holds true for the blue triangle in motion starting from side <b>b</b>.
           </p>
-          <p>The argument above also holds true for the blue triangle in motion starting from side <b>b</b>.</p>
-          <hr>
-          <p>In both cases the animation shows that:</p>
-          <p class="text-center font-weight-bold">&frac12; area(square) = &frac12; area(rectangle)</p>
-          <p style="line-height: .1">Hence:</p>
-          <p class="text-center font-weight-bold">area(square) = area(rectangle)</p>
-          <p>Combining the results for both sides <b>a</b> and <b>b</b> gives us:</p>
-          <p class="text-center font-weight-bold">a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></span></p>
+          <p class="text-right"><b>QED baby</b></p>
+
+          <p>
+            In both cases(<b>a</b> and <b>b</b>) the animation shows that:
+            <center><b>&frac12; area(square) = &frac12; area(rectangle)</b></center>
+            Hence:
+            <center><b>area(square) = area(rectangle)</b></center><br>
+            Combining the results of <b>a</b> and <b>b</b> gives us:
+            <center><b>a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></span></b></center>
+          </p>
         </div>
       </div>
-
-      <br>
 
       <div>
         <p class="small"><b>Full disclosure:</b> The idea for this came to me back in the 90's after reading two books: <i>Euclids Elements</i>(Proposition 47) and <i>Fractals Everywhere</i>. Come to find out that one Jim Morey had beaten me to the internet with an animated Java applet(earning him the grand prize for programming at the first Sun/Java conference in 1995). Java applets are no longer supported so I put this SVG version up to get it back on the web. <b>&copy; 2019 Joe Hartman</b>
         </p>
       </div>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   </body>
 </html>
