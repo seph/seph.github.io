@@ -10,7 +10,6 @@
     <style media="screen" type="text/css">
       p { line-height: 1.2 }
       .small { font-size: small; }
-      .special_line_height { line-height: 1.5 }
 
       body {
         background: #f5f5dc;
@@ -31,26 +30,22 @@
                 var short_x = shortln * Math.sin(theta + factor), short_y = shortln * Math.cos(theta + factor),
                     long_x = longln * Math.sin(theta), long_y = longln * Math.cos(theta);
 
+
                 return (short_x + ctr_x) + "," + (short_y + ctr_y) + " " + ctr_x + "," + ctr_y + " " + (long_x + ctr_x) + "," + (long_y + ctr_y);
               }
 
               function Animate(evt) {
-                var contentStr, transformStr, attributeStr, delay, last_x = 140, last_y = 110, first_y = 110, flag = 0, theta = 1.57,
+                var delay, last_x = 140, last_y = 110, first_y = 110, flag = 0, theta = 1.57,
                   triangle = evt.target.ownerDocument.getElementById("mytri"),
                   msg1 = evt.target.ownerDocument.getElementById("text1"),
-                  msg2 = evt.target.ownerDocument.getElementById("text2");
+                  msg2 = evt.target.ownerDocument.getElementById("text2"),
                   msg3 = evt.target.ownerDocument.getElementById("text3");
 
                 setTimeout(function Transform() {
-                  if ( 140 == last_x ) {
-                    delay = 2000;   // pause if starting over
-                  } else if ( flag == 3 ) {
-                    delay = 60;     // slow down first leg of RH animation
-                  } else {
-                    delay = 40;     // default speed
-                  }
+                  if (140 == last_x) { delay = 2000; }    // pause if starting over
+                  else delay = (0 > theta) ? 60 : 40;     // slow down first rh skew else default speed
 
-                  switch ( flag ) {
+                  switch (flag) {
                     case 0:
                       msg1.textContent = "First Skew";
                       msg1.setAttribute("transform", "scale(.7) translate(70,290) rotate(-72)");
@@ -140,7 +135,8 @@
       </div>
 
       <div>
-        <p class="small"><b>Full disclosure:</b> The idea for this came to me back in the 90's after reading <i>Euclids Elements</i>(Proposition 47) as well as <i>Fractals Everywhere</i>(fig. 2.5.1: path continuously deformed...). Come to find out that one Jim Morey had beaten me to the internet with an animated Java applet(earning him the grand prize for programming at the first Sun/Java conference in 1995). Java applets are no longer supported so I put this SVG version up to fill the void. <b>&copy; 2019 Joe Hartman</b>
+        <p class="small">
+          <b>Full disclosure:</b> The idea for this came to me back in the 90's after reading two books: <i>Fractals Everywhere</i>(fig. 2.5.1: path continuously deformed...) and <i>Euclids Elements</i>(Prop. 47). Jim Morey beat me to the internet with an animated Java applet earning him the grand prize for programming at the first Sun/Java conference in 1995. Java applets are no longer supported so here is an SVG version with commentary. <b>&copy; 2019 Joe Hartman</b>
         </p>
       </div>
     </div>
