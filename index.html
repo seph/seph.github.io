@@ -24,24 +24,28 @@
       <div class="row">
         <div class="col-md-5 text-center">
 
-          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="335" height="360" viewBox="0 0 335 360" onload="Animate(evt)">
+          <button id="stopBtn">Stop Animation</button><br><br>
+          <p>Refresh page to restart from the beginning.</p>
+          <svg version="1.1" id="exampleSVG" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="335" height="360" viewBox="0 0 335 360" onload="Animate(evt)">
             <script>
-              function Rotate(theta, ctr_x, ctr_y, shortln, longln, factor) {
-                var short_x = shortln * Math.sin(theta + factor), short_y = shortln * Math.cos(theta + factor),
-                    long_x = longln * Math.sin(theta), long_y = longln * Math.cos(theta);
 
+              let loopTimerId = null;
+
+              function Rotate(theta, ctr_x, ctr_y, shortln, longln, factor) {
+                let short_x = shortln * Math.sin(theta + factor), short_y = shortln * Math.cos(theta + factor),
+                    long_x = longln * Math.sin(theta), long_y = longln * Math.cos(theta);
 
                 return (short_x + ctr_x) + "," + (short_y + ctr_y) + " " + ctr_x + "," + ctr_y + " " + (long_x + ctr_x) + "," + (long_y + ctr_y);
               }
 
               function Animate(evt) {
-                var delay, last_x = 140, last_y = 110, first_y = 110, flag = 0, theta = 1.57,
+                let delay = null, last_x = 140, last_y = 110, first_y = 110, flag = 0, theta = 1.57,
                   triangle = evt.target.ownerDocument.getElementById("mytri"),
                   msg1 = evt.target.ownerDocument.getElementById("text1"),
                   msg2 = evt.target.ownerDocument.getElementById("text2"),
                   msg3 = evt.target.ownerDocument.getElementById("text3");
 
-                setTimeout(function Transform() {
+                loopTimerId = setTimeout(function Transform() {
                   if (140 == last_x) { delay = 2000; }    // pause if starting over
                   else delay = (0 > theta) ? 60 : 40;     // slow down first rh skew else default speed
 
@@ -83,10 +87,20 @@
                       triangle.setAttribute("points", "140," + ( ++first_y ) + " 230,170 230,300");
                       if ( first_y == 170 ) { delay = 2000; flag = 0; first_y = 110; last_x = 140; last_y = 160; theta = 1.57; } break;
                   }
-
-              		setTimeout(Transform, delay);
+   
+              		loopTimerId = setTimeout(Transform, delay);
               	}, delay);
+   
             	}
+
+              // Select the button element by its ID
+              const stopButton = document.getElementById("stopBtn");
+
+              // Add a click event listener
+              stopButton.addEventListener("click", () => {
+                clearTimeout(loopTimerId);
+              });
+
             </script>
 
             <rect width="100%" height="100%" fill="white" stroke="black" />
@@ -104,31 +118,31 @@
           </svg>
 
           <p class="small">
-            Animation follows the same general approach as in <a href="https://mathcs.clarku.edu/~djoyce/elements/bookI/propI47.html"><br>
+            Animation follows the same general approach as <a href="https://mathcs.clarku.edu/~djoyce/elements/bookI/propI47.html"><br>
             Euclid's Elements: Proposition 47</a>
           </p>
         </div>
 
         <div class="col-md">
-          <p>Claim: The area of the triangle in motion never changes.</p>
+          <p>Claim: The size(area) of the triangle in motion never changes.</p>
           <p>
-            Notice that we have two kinds of motion: rotating and skewing.
-            Clearly the area of the rotating triangle isn't changing so let's turn our attention to the skewing process:
+            Notice that we have two kinds of motion: rotation and skewing.
+            Clearly the size of the rotating triangle isn't changing so let's turn our attention to the skewing process:
             Refresh the page and observe the motion of the green triangle starting from side <b>a</b>, its tip tracing along side <b>b</b>. Now consider the fact that:
           </p>
-          <p class="text-center font-weight-bold">area(triangle) = &frac12; &times; base &times; height</p>
+          <p class="text-center font-weight-bold">area(triangle) = &frac12;(base &times; height)</p>
           <p>
-            <a href="https://www.youtube.com/watch?v=YOYQys52sPs&t=7m"><em>even for obtuse triangles</em></a>. Also, <b>abc</b> is a right triangle(<em>the angle between sides <b>a</b> and <b>b</b> is 90&deg;</em>) so
-            side <b>b</b> is perpendicular to side <b>a</b> and thus parallel to the base of the skewing triangle.
-            Therefore the height of the skewing triangle never changes, <em>and neither does its area</em>.
-            The area of the skewing triangle after the rotation doesn't change either since the height of the triangle remains the same throughout the skewing process.
+            <a href="https://www.youtube.com/watch?v=YOYQys52sPs&t=7m"><em>even for obtuse triangles</em></a>. Also, the triangle bounded by sides <b>a, b</b> and <b>c</b> is right(<em>the angle between sides <b>a</b> and <b>b</b> is 90&deg;</em>) so
+            side <b>b</b> is perpendicular to side <b>a</b> and thus parallel to the base of the triangle.
+            Therefore the height of the triangle never changes, <em>and neither does its area</em>.
+            The area of the skewing triangle after the rotation doesn't change either since the height of the triangle remains the same throughout that skewing process as well.
           </p>
           <p class="text-right">QED baby</p>
           <hr>
           <p>The animation shows that:</p>
-          <p class="text-center font-weight-bold">&frac12; area(square) = &frac12; area(rectangle)</p>
+          <p class="text-center font-weight-bold">&frac12; area(square above) = &frac12; area(rectangle below)</p>
           <p class="text-center">which means</p>
-          <p class="text-center font-weight-bold">area(square) = area(rectangle)</p>
+          <p class="text-center font-weight-bold">area(square above) = area(rectangle below)</p>
           <p>Combining the results of <b>a</b> and <b>b</b> gives:</p>
           <p class="text-center font-weight-bold">a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></span></p>
         </div>
@@ -136,7 +150,7 @@
 
       <div>
         <p class="small">
-          <b>Full disclosure:</b> The idea for this came to me back in the 90's after reading two books: <i>Fractals Everywhere</i>(fig. 2.5.1: path continuously deformed...) and <i>Euclids Elements</i>(Prop. 47). Jim Morey beat me to the internet with an animated Java applet earning him the grand prize for programming at the first Sun/Java conference in 1995. Java applets are no longer supported so here is an SVG version with commentary. <b>&copy; 2025 Joe Hartman</b>
+          <b>Full disclosure:</b> The idea for this came to me back in the 90's after reading two books: <i>Fractals Everywhere</i>(fig. 2.5.1: path continuously deformed...) and <i>Euclids Elements</i>(Prop. 47). Jim Morey beat me to the internet with an animated Java applet earning him the grand prize for programming at the first Sun/Java conference in 1995. Java applets are no longer supported on the web so here is an SVG/Javascript version with commentary. <b>&copy; 2026 Joe Hartman</b>
         </p>
       </div>
     </div>
