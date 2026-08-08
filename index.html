@@ -100,7 +100,7 @@
                 if (stopButton.textContent == 'Freeze Animation') {
                   clearTimeout(loopTimerId);
                   stopButton.textContent = 'Restart Animation'; 
-                } else {
+                } else if (stopButton.textContent == 'Restart Animation') {
                   location.reload();
                 }
               });
@@ -133,24 +133,24 @@
           <p>Claim: The size(area) of the triangle in motion never changes.</p>
           <p>
             Notice that we have two kinds of motion: skewing and rotation.
-            Clearly the size of the rotating triangle isn't changing so let's turn our attention to the skewing process:
-            Refresh the page and observe the motion of the green triangle starting from side <b>a</b>, its tip tracing along side <b>b</b>. Now consider the fact that:
+            Clearly the size of the rotating triangle isn't changing so let's examine the skewing part.
+            Refresh the page and observe the motion of the green triangle with its tip starting from side <b>a</b> and tracing along side <b>b</b> which is parellel to the base of the triangle. Now consider the fact:
           </p>
-          <p class="text-center font-weight-bold">area(triangle) = &frac12;(base &times; height)</p>
+          <p class="text-center font-weight-bold">area of a triangle = &frac12;(base &times; height)</p>
           <p>
-            <a href="https://www.youtube.com/watch?v=YOYQys52sPs&t=7m"><em>even for obtuse triangles</em></a>. Also, the triangle bounded by sides <b>a, b</b> and <b>c</b> is right(<em>the angle between sides <b>a</b> and <b>b</b> is 90&deg;</em>) so
-            side <b>b</b> is perpendicular to side <b>a</b> and thus parallel to the base of the triangle in motion.
-            Therefore the height of the triangle never changes, <em>and neither does its area</em>.
-            The area of the skewing triangle after the rotation doesn't change either since the base of the triangle is parallel to the verticle drop so the height of the triangle remains the same throughout that skewing process as well.
+            <a href="https://www.youtube.com/watch?v=YOYQys52sPs&t=7m"><em>even for obtuse triangles</em></a>. Also, the central triangle with sides <b>a, b</b> and <b>c</b> is <b>right</b>(<em>the angle between sides <b>a</b> and <b>b</b> is 90&deg;</em>) so
+            side <b>b</b> is perpendicular to side <b>a</b> and thus is parallel to the base of the triangle in motion.
+            Therefore the height of the triangle never changes, <em><b>and neither does its size</b></em>.
+            The area of the skewing triangle after the rotation doesn't change either since the base of the triangle is parallel to the verticle drop so the height of that triangle remains the same throughout that skewing process as well.
           </p>
           <p class="text-right">QED baby</p>
           <hr>
           <p>The animation shows that:</p>
-          <p class="text-center font-weight-bold">&frac12; area(square above) = &frac12; area(rectangle below)</p>
-          <p class="text-center">which means</p>
-          <p class="text-center font-weight-bold">area(square above) = area(rectangle below)</p>
-          <p>Combining the results of sides <b>a</b> and <b>b</b>:</p>
-          <p class="text-center font-weight-bold">Given a right triangle: a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup> (Pythagoras Theorem)</p>
+          <p class="text-center font-weight-bold">&frac12; area of above left square = &frac12; area of below left rectangle</p>
+          <p class="text-center">hence</p>
+          <p class="text-center font-weight-bold">area of above left square = area of below left rectangle</p>
+          <p>The same goes for the right side. Combining the results of the left and right sides:</p>
+          <p class="text-center font-weight-bold">Given a right triangle with sides a, b and c: a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup> (Pythagoras Theorem)</p>
         </div>
       </div>
 
