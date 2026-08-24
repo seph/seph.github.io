@@ -24,7 +24,7 @@
       <div class="row">
         <div class="col-md-5 text-center">
 
-          <button id="stopBtn">Pause Animation</button><br><br>
+          <button id="stopBtn">Pause</button><br><br>
           <svg version="1.1" id="exampleSVG" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="335" height="360" viewBox="0 0 335 360" onload="Animate(evt)">
             <script>
 
@@ -99,12 +99,12 @@
 
               // Add a click event listener
               stopButton.addEventListener("click", () => {
-                if (stopButton.textContent == 'Pause Animation') {
+                if (stopButton.textContent == 'Pause') {
                   clearTimeout(loopTimerId);
-                  stopButton.textContent = 'Resume Animation'; 
-                } else if (stopButton.textContent == 'Resume Animation') {
+                  stopButton.textContent = 'Resume'; 
+                } else if (stopButton.textContent == 'Resume') {
                   resumeTransform();
-                  stopButton.textContent = 'Pause Animation';
+                  stopButton.textContent = 'Pause';
                 }
               });
 
@@ -137,7 +137,7 @@
           <p>
             Notice that we have two kinds of motion: skewing and rotation.
             Clearly the area of the rotating triangle isn't changing so let's examine the skewing.
-            Refresh the page and observe the motion of the green triangle with its tip starting from the top of side <b>a</b> and tracing along side <b>b</b>. Now remember that:
+            Refresh the page and observe the motion of the green triangle with its tip starting from the top of side <b>a</b> and tracing along side <b>b</b>. Now pause the animation before the tip reaches the end of line <b>b</b> and remember that:
           </p>
           <p class="text-center font-weight-bold">area of a triangle = &frac12;(base &times; height)</p>
           <p>
@@ -150,7 +150,7 @@
           <hr>
           <p>The animation shows that:</p>
           <p class="text-center font-weight-bold">&frac12; area of above left square = &frac12; area of below left rectangle</p>
-          <p class="text-center">hence</p>
+          <p class="text-center">which means that</p>
           <p class="text-center font-weight-bold">area of above left square = area of below left rectangle</p>
           <p>The same goes for the right side. Combining the results of both sides:</p>
           <p class="text-center font-weight-bold">Given a right triangle with sides a, b and c: a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup> (Pythagoras Theorem)</p>
