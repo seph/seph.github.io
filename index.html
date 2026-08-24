@@ -29,6 +29,7 @@
             <script>
 
               let loopTimerId = null;
+              let resumeTransform = null;
 
               function Rotate(theta, ctr_x, ctr_y, shortln, longln, factor) {
                 let short_x = shortln * Math.sin(theta + factor), short_y = shortln * Math.cos(theta + factor),
@@ -45,6 +46,7 @@
                   msg3 = evt.target.ownerDocument.getElementById("text3");
 
                 loopTimerId = setTimeout(function Transform() {
+                  resumeTransform = Transform;
                   if (140 == last_x) { delay = 2000; }    // pause if starting over
                   else delay = (0 > theta) ? 60 : 40;     // slow down first rh skew else default speed
 
@@ -99,9 +101,10 @@
               stopButton.addEventListener("click", () => {
                 if (stopButton.textContent == 'Freeze Animation') {
                   clearTimeout(loopTimerId);
-                  stopButton.textContent = 'Restart Animation'; 
-                } else if (stopButton.textContent == 'Restart Animation') {
-                  location.reload();
+                  stopButton.textContent = 'Resume Animation'; 
+                } else if (stopButton.textContent == 'Resume Animation') {
+                  resumeTransform();
+                  stopButton.textContent = 'Freeze Animation';
                 }
               });
 
