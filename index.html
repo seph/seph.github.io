@@ -24,7 +24,7 @@
       <div class="row">
         <div class="col-md-5 text-center">
 
-          <button id="stopBtn">Freeze Animation</button><br><br>
+          <button id="stopBtn">Pause Animation</button><br><br>
           <svg version="1.1" id="exampleSVG" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="335" height="360" viewBox="0 0 335 360" onload="Animate(evt)">
             <script>
 
@@ -99,12 +99,12 @@
 
               // Add a click event listener
               stopButton.addEventListener("click", () => {
-                if (stopButton.textContent == 'Freeze Animation') {
+                if (stopButton.textContent == 'Pause Animation') {
                   clearTimeout(loopTimerId);
                   stopButton.textContent = 'Resume Animation'; 
                 } else if (stopButton.textContent == 'Resume Animation') {
                   resumeTransform();
-                  stopButton.textContent = 'Freeze Animation';
+                  stopButton.textContent = 'Pause Animation';
                 }
               });
 
